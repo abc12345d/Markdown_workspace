@@ -82,9 +82,11 @@ However, in Python, we do not need to worry about integer overflow because Pyth
 ### Two pointers solution: O(n)
 ```PYTHON
 def removeElement(self, nums: List[int], val: int) -> int:
-    # loop invariant: 
+    # loop invariant 1: 
     # elements in nums array where index < left are not equal to val
     # elements in nums array where index > right are equal to val
+    # loop invariant 2:
+    # search space [left,right]
 
     left = 0
     # right is the index of last unchecked position
@@ -101,11 +103,10 @@ def removeElement(self, nums: List[int], val: int) -> int:
         else:
             left += 1
     
-    # as the array is zero-based indexing, 
+    # as the array is zero-based indexing and the exit condition of while loop, 
     # elements in this range [0:k-1] are not equal to val
     # elements in this range [k:len(nums)-1] are equal to val
-    # due to the condition of while loop, 
-    # left = the index of first occurance of val in nums array.
+    # left = the index of first occurance of val in nums array = k
     return left 
 ```
 
