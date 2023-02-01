@@ -1,7 +1,7 @@
 # Array
 An array is a collection of similar data elements stored at contiguous regions of memory. Each data element can be accessed directly by using its index number (In most programming languages, array indexes start at zero, aka zero-based indexing).
 
-![array](/images/array.png)
+![array](./images/array.png)
 
 ### Characteristic of Array
 Since data elements are stored in the contiguous memory location, the worst case time complexity of insertion and deletion in an array is O(n), as all other data elements may have to be moved for the operations.
@@ -65,7 +65,7 @@ def search(self, nums: List[int], target: int) -> int:
 ```
 For the condition of while loop and loop invariant, we can always think of the case where there is only one element in the `nums` array and we want to exit the loop after one execution
 
-![](/images/20230201160735.png)  
+![](./images/20230201160735.png)  
 
 Time complexity: \
 Binary search reduces its search space by half in every iteration. Hence, the worst-case time complexity is O(log n), and the best-case time complexity is O(1).
