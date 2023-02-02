@@ -165,3 +165,146 @@ def searchInsert(self, nums: List[int], target: int) -> int:
     return left
 ```
 
+# 34. Find First and Last Position of Element in Sorted Array
+There are two ways to solve this problem:\
+(1) use binary search to find the starting position(or ending position) of target, then loop from the position until no target value is found\
+(2) use two binary search to find the starting position and ending position of target.\
+The worst-case time complexities of both ways are O(log n), but way (2) is more bug-free since we use the same algorithm twice instead of one algorithm to find the first position and another algorithm to find the last position of target. Besides, way (1) have to consider more edge case.
+
+### way (1a): find starting position 
+To find the starting position of target, we have to separate the search space into two parts: " < target " and " >= target " by modifying the if statement inside the binary search. 
+
+![](./images/20230202115427.png)  
+```PYTHON
+    def searchRange(self, nums: List[int], target: int) -> List[int]:
+        
+        def searchFirstTarget(nums, target):
+            # loop invariant: [left, right]
+            left = 0
+            right = len(nums) - 1
+
+            while(left <= right):
+                mid = (left + right) // 2
+
+                if (nums[mid] < target):
+                    left = mid + 1
+                else:
+                    right = mid - 1
+            
+            # due to the if condition,
+            # left is the possible starting position of target (see image)
+            return left
+
+        start = -1
+        end = -1
+        possible_start = searchFirstTarget(nums,target)
+
+        # edge case
+        if possible_start >= len(nums) or len(nums) == 0:
+            return [start,end]
+
+        
+        if nums[possible_start] == target:
+            start = possible_start
+            counter = possible_start + 1
+
+            # loop from the start position until no target value is found
+            while(counter < len(nums) and (nums[counter] == target)):
+                counter += 1
+            end = counter - 1
+        
+        return [start,end]
+```
+
+### way (1b): find ending position 
+To find the ending position of target, we have to separate the search space into two parts: " <= target " and " > target " by modifying the if statement inside the binary search. 
+
+![](./images/20230202120856.png)  
+
+```PYTHON
+def searchRange(self, nums: List[int], target: int) -> List[int]:
+        
+        def searchEndTarget(nums, target):
+            # loop invariant: [left, right]
+            left = 0
+            right = len(nums) - 1
+
+            while(left <= right):
+                mid = (left + right) // 2
+
+                if (nums[mid] <= target):
+                    left = mid + 1
+                else:
+                    right = mid - 1
+            
+            # due to the if condition,
+            # right is the possible ending position of target (see image)
+            return right
+
+        start = -1
+        end = -1
+        possible_end = searchEndTarget(nums,target)
+
+        # edge case
+        if possible_end < 0:
+            return [start,end]
+
+        if nums[possible_end] == target:
+            end = possible_end
+            counter = possible_end - 1
+
+            # loop from the ending position until no target value is found
+            while(counter >= 0 and (nums[counter] == target)):
+                counter -= 1
+            start = counter + 1
+        
+        return [start,end]
+```
+### way (2): two binary search
+What we do after we have found the target will decide the positions of the `left` and `right` pointers (after exiting from the while loop).
+
+![](./images/20230202123745.png)  
+```PYTHON
+def searchRange(self, nums: List[int], target: int) -> List[int]:
+        
+        def searchFirstTarget(nums, target):
+            # loop invariant: [left, right]
+            left = 0
+            right = len(nums) - 1
+            isFound = False
+
+            while(left <= right):
+                mid = (left + right) // 2
+
+                if (nums[mid] == target):
+                    isFound = True
+                    right = mid - 1
+                elif (nums[mid] < target):
+                    left = mid + 1
+                else:
+                    right = mid -1
+                    
+            return left if isFound else -1
+
+        def searchEndTarget(nums, target):
+            # loop invariant: [left, right]
+            left = 0
+            right = len(nums) - 1
+            isFound = False
+
+            while(left <= right):
+                mid = (left + right) // 2
+
+                if (nums[mid] == target):
+                    isFound = True
+                    left = mid + 1
+                elif (nums[mid] < target):
+                    left = mid + 1
+                else:
+                    right = mid -1
+                    
+            return right if isFound else -1
+
+        return [searchFirstTarget(nums, target),searchEndTarget(nums, target)]
+```
+
