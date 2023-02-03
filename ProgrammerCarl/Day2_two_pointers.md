@@ -66,7 +66,7 @@ def minSubArrayLen(self, target: int, nums: List[int]) -> int:
 ```
 
 # 59. Spiral Matrix II
-Core idea: \
+Core idea: loop invariant\
 Through observing the example, we can see that the matrix can be filled in 4 types of directions:\
 (1) from left to right to fill the top row\
 (2) from up to down to fill the right column\
