@@ -85,7 +85,7 @@ def flexible_sliding_window(array):
     return ...
 ```
 
-### Reference
+# Reference
 [代码随想录 - 数组理论基础](https://programmercarl.com/数组理论基础.html#数组理论基础)\
 [Algomonster - Binary Search and Monotonic Function](https://algo.monster/problems/binary-search-monotonic)\
 [StackOverflow - Is two pointer problem same as sliding window](https://stackoverflow.com/questions/64078162/is-two-pointer-problem-same-as-sliding-window)
