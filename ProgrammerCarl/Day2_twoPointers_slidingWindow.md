@@ -73,10 +73,13 @@ Through observing the example, we can see that the matrix can be filled in 4 typ
 (3) from right to left to fill the bottom row\
 (4) from down to up to fill the left column
 
-We iteratively shrink the available space to fill by specifying `row_start`,`row_end`,`col_start` and `col_end`, and maintaining the loop invariant that `start` always <= `end`.
+We iteratively shrink the available space to fill by specifying `row_start`,`row_end`,`col_start` and `col_end`, and maintaining the loop invariant that: (a) `start` always <= `end` or (b) `start` always < `end`.
 
-![](20230203002603.png)  
-Both the time complexity and space complexity are O(n by n).
+TODO: draw and paint graphs which correspond to different ways
+
+Both the time complexity and space complexity of way (a) and way (b) are O(n by n).
+
+### way (a). loop invariant: [start, end]
 ```PYTHON
 def generateMatrix(self, n: int) -> List[List[int]]:
         # loop invariant:
@@ -117,4 +120,9 @@ def generateMatrix(self, n: int) -> List[List[int]]:
             col_start += 1
 
         return res
+```
+
+### way (b). loop invariant: [start, end)
+TODO: write the code
+```PYTHON
 ```

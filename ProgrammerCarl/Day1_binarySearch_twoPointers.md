@@ -1,14 +1,3 @@
-# Array
-An array is a collection of similar data elements stored at contiguous regions of memory. Each data element can be accessed directly by using its index number (In most programming languages, array indexes start at zero, aka zero-based indexing).
-
-![array](./images/array.png)
-
-### Characteristic of Array
-Since data elements are stored in the contiguous memory location, the worst case time complexity of insertion and deletion in an array is O(n), as all other data elements may have to be moved for the operations.
-
-### Reference
-[代码随想录 - 数组理论基础](https://programmercarl.com/数组理论基础.html#数组理论基础)
-
 # 704. Binary Search
 Core idea: the boundary of search space
 
