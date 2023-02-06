@@ -77,9 +77,8 @@ We iteratively shrink the available space to fill by specifying `row_start`,`row
 
 TODO: draw and paint graphs which correspond to different ways
 
-Both the time complexity and space complexity of way (a) and way (b) are O(n by n).
-
 ### way (a). loop invariant: [start, end]
+Time complexity and space complexity are O(n by n).
 ```PYTHON
 def generateMatrix(self, n: int) -> List[List[int]]:
         # loop invariant:
@@ -123,6 +122,7 @@ def generateMatrix(self, n: int) -> List[List[int]]:
 ```
 
 ### way (b). loop invariant: [start, end)
+Time complexity and space complexity are O(n by n).
 TODO: write the code
 ```PYTHON
 ```
