@@ -4,6 +4,12 @@ A linked list is a sequence of nodes where each node contains two fields: data f
 ![](./images/20230204123331.png)  
 
 ### Operations of Linked List
+The insertion and deletion in linked list require both the previous node and the next node of the desired node (see figures). However, a linked list's head node does not have a previous node. Therefore, how we handle the deletion of a head node will differ from how we handle the deletion of a non-head node. 
+
+There are two ways to address this situation:\
+(1) Write two separate while loops, one for handling the head node and another one for handling the non-head nodes. \
+(2) Add a dummy head node so that the real head node becomes like any other node.
+
 #### Insertion in Linked List
 ![](./images/20230204124738.png)  
 #### Deletion in Linked List
