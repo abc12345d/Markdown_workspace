@@ -155,3 +155,40 @@ def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> Optional[List
         return None
 ```
 # 142. Linked List Cycle II
+Core idea:\
+(1) check if there is a cycle\
+(2) find the entrance of cycle
+
+To check if there is a cycle, we can use `fast` and `slow` pointers. Since `fast` pointer moves at double speed of `slow` pointer, they will intersect if and only if there is a cycle, else the `fast` pointer will reach the terminating node (aka Floyd cycle algorithm).
+
+To find the entrance of cycle, we need to perform a bit of mathematics. 
+![](./images/20230207130339.png)  
+Since `x1 = x3`, if we move from the head and the meeting point at the same speed, both pointers will meet at the entrance of loop at the same time.
+
+Time complexity: O(n)
+Space complexity: O(1)
+```PYTHON
+def detectCycle(self, head: Optional[ListNode]) -> Optional[ListNode]:
+    
+    # check if there is a cycle
+    slow = head
+    fast = head
+    
+    while(fast and fast.next):
+        fast = fast.next.next
+        slow = slow.next
+        if(fast == slow):
+            # found the first intersection of fast and slow pointers
+            # which means there is a cycle
+            
+            # to find the entrance of cycle
+            curr = head
+            while(curr):
+                if(curr == fast):
+                    return curr
+                curr = curr.next
+                fast = fast.next
+    
+    # cycle not found
+    return None
+```
