@@ -22,7 +22,7 @@ Besides, even the insertion and deletion in Linked List only take a time complex
 
 # Common algorithms
 ### Floyd cycle algoritm
-To check if there is a cycle in linked list, we can use `fast` and `slow` pointers. Since `fast` pointer moves at double speed of `slow` pointer, they will intersect if and only if there is a cycle, else the `fast` pointer will reach the terminating node (see [Leetcode 142. Linked List Cycle II](./Day4_linked_list.md) for more details).
+To check if there is a cycle in linked list, we can use `fast` and `slow` pointers. Since `fast` pointer moves at double speed of `slow` pointer, they will intersect if and only if there is a cycle, else the `fast` pointer will reach the terminating node (see [Leetcode 142. Linked List Cycle II](./Day4_linked_list.md/#142-linked-list-cycle-ii) for more details).
 
 
 # Reference
