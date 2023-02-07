@@ -20,6 +20,11 @@ Unlike Array, the nodes of the Linked List are not stored in the contiguous memo
 
 Besides, even the insertion and deletion in Linked List only take a time complexity of O(1) but both operations requires iterating through the list from the head to the desired node, which takes O(n) time
 
+# Common algorithms
+### Floyd cycle algoritm
+To check if there is a cycle in linked list, we can use `fast` and `slow` pointers. Since `fast` pointer moves at double speed of `slow` pointer, they will intersect if and only if there is a cycle, else the `fast` pointer will reach the terminating node (see [Leetcode 142. Linked List Cycle II](./Day4_linked_list.md) for more details).
+
+
 # Reference
 [代码随想录 - 链表](https://programmercarl.com/链表理论基础.html#单链表)\
 [wikipedia - linked list](https://en.wikipedia.org/wiki/Linked_list)
