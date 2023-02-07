@@ -11,13 +11,13 @@ def isAnagram(self, s: str, t: str) -> bool:
 
     s_dict = {} 
     for i in list(s):
-        if i in s_dict.keys():
+        if i in s_dict:
             s_dict[i] += 1
         else:
             s_dict[i] = 1
     
     for i in list(t):
-        if i in s_dict.keys():
+        if i in s_dict:
             if s_dict[i] == 0:
                 return False
             else:
@@ -116,7 +116,7 @@ Space complexity: O(n)
 def twoSum(self, nums: List[int], target: int) -> List[int]:
     hashMap = {}
     for i, v in enumerate(nums):
-        if (target - v) in hashMap.keys():
+        if (target - v) in hashMap:
             return [hashMap[target - v], i]
         else:
             hashMap[v] = i
