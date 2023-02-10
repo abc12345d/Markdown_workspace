@@ -1,6 +1,6 @@
 # 232. Implement Queue using Stacks
 In order to implement queue by using only stack, we need at least two stacks which responsible for input and output respectively.
-
+![](./images/20230210112415.png)  
 ```PYTHON
 class MyQueue:
 
@@ -31,6 +31,8 @@ class MyQueue:
 ```
 
 # 225. Implement Stack using Queues
+### way 1: two queues
+![](./images/20230210113700.png)  
 ```PYTHON
 from collections import deque
 class MyStack:
@@ -71,3 +73,35 @@ class MyStack:
     def empty(self) -> bool:
         return not (self.queue)     
 ```
+### way 2: one queue
+append (size - 1) element of the queue to the queue, then pop out the last-in element
+```PYTHON
+from collections import deque
+class MyStack:
+
+    def __init__(self):
+        self.queue = deque()
+
+    def push(self, x: int) -> None:
+        self.queue.append(x)
+        
+    def pop(self) -> int:
+        size = len(self.queue)
+        while( size > 1):
+            self.queue.append(self.queue.popleft())
+            size -= 1
+
+        return self.queue.popleft()
+
+    def top(self) -> int:
+        val = self.pop()
+        self.queue.append(val)
+
+        return val
+
+    def empty(self) -> bool:
+        return not (self.queue)
+```
+
+# Reference
+[代码随想录 - 232.用栈实现队列](https://programmercarl.com/0232.%E7%94%A8%E6%A0%88%E5%AE%9E%E7%8E%B0%E9%98%9F%E5%88%97.html#%E6%80%9D%E8%B7%AF)
