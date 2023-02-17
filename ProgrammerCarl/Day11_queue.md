@@ -71,7 +71,7 @@ class Solution:
 
 # 347. Top K Frequent Elements
 Use hash map and heap sort\
-Time complexity: O(n log n)
+Time complexity: O(n log k)
 ```PYTHON
 import heapq
 class Solution:
