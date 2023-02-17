@@ -19,7 +19,7 @@ For each node, the height difference of the left and right subtree of the node i
 ### Ways to traverse a tree
 ####  Breadth-first search (BFS)
 - visits all nodes level by level
-- BFS is implemented  using queue and can only be traversed in iterative approach
+- BFS is implemented using queue and can only be traversed in iterative approach
 
 #### Depth-first search (DFS)
 - explores each branch until reaching the leaf node then backtracking to next branch
