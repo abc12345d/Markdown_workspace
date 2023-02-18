@@ -98,7 +98,7 @@ def countNodes(self, root: Optional[TreeNode]) -> int:
 ```
 ### way 3: recursive approach after considering the characteristic of complete binary tree
 As contrast to the way 1 and way 2 which require the traversal of the whole tree, the way 3 runs in less than O(n) time complexity. For example, the way 3 don't need to visit the nodes in grey (see below figure).
-![](./images/20230218194514.png)  
+![](./images/20230218201151.png)  
 
 Time complexity: O (log n * log n), since we run O(log n) to check the depth and we have to call the `get_no_nodes` for each level\
 Space complexity: O(log n)
@@ -120,7 +120,7 @@ def countNodes(self, root: Optional[TreeNode]) -> int:
             right_depth += 1
             right = right.right
 
-        # left depth = right depth -> full binary tree
+        # left depth = right depth -> perfect binary tree
         if left_depth == right_depth:
             return (2 ** left_depth) - 1
 
