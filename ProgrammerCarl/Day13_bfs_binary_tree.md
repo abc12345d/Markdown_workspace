@@ -270,7 +270,7 @@ def maxDepth(self, root: Optional[TreeNode]) -> int:
         return depth
 ```
 # 111. Minimum Depth of Binary Tree
-### way 1: recursive approach
+### way 1: recursive approach (dfs in post order)
 ```PYTHON
 def minDepth(self, root: Optional[TreeNode]) -> int:
     def recur(curr):
@@ -286,7 +286,7 @@ def minDepth(self, root: Optional[TreeNode]) -> int:
 
     return recur(root)
 ```
-### way 2: iterative approach
+### way 2: iterative approach (bfs)
 ```PYTHON
 from collections import deque
 class Solution:
