@@ -232,18 +232,20 @@ class Solution:
         return root
 ```
 # 104. Maximum Depth of Binary Tree
-### way 1: recursive approach
+To get the height of a binary tree, we have to traverse the tree in post order, i.e. left, right and mid. To get get the depth of a binary tree, we have to traverse the tree in pre order, i.e. mid, left and right. As the height of the root node will equal to the max depth of a binary tree, we can still solve this question by using `get_height` function.
+![](./images/20230218142841.png)  
+### way 1: recursive approach (dfs in post order)
 ```PYTHON
 def maxDepth(self, root: Optional[TreeNode]) -> int:
-    def recur(curr):
+    def get_height(curr):
         if not curr:
             return 0
         else:
-            return 1 + max(recur(curr.left), recur(curr.right))
+            return 1 + max(get_height(curr.left), get_height(curr.right))
     
-    return recur(root)
+    return get_height(root)
 ```
-### way 2: iterative approach
+### way 2: iterative approach (bfs)
 ```PYTHON
 from collections import deque
 def maxDepth(self, root: Optional[TreeNode]) -> int:
@@ -254,14 +256,14 @@ def maxDepth(self, root: Optional[TreeNode]) -> int:
         depth = 0
         while queue:
             size = len(queue)
-            depth += 1
+            depth += 1     
             while size > 0:
                 node = queue.popleft()
 
-                if node.left:
+                if node.left:     
                     queue.append(node.left)
 
-                if node.right:
+                if node.right:    
                     queue.append(node.right)
 
                 size -= 1
@@ -395,3 +397,4 @@ class Solution:
         return True
 ```
 #### TODO: q100, q572
+#### TODO: q104 - way 3: (dfs in pre order) [hint: backtracking algorithm]
