@@ -23,10 +23,17 @@ For each node, the height difference of the left and right subtree of the node i
 
 #### Depth-first search (DFS)
 - explores each branch until reaching the leaf node then backtracking to next branch
-- the traversal can be done in three types of orders:\
-(a) **Inorder**, traverse from the **left** subtree to the **root** then to the **right** subtree.\
-(b) **Preorder**, traverse from the **root** to the **left** subtree then to the **right** subtree.\
-(c) **Post order**, traverse from the **left** subtree to the **right** subtree then to the **root**.
+- the traversal can be done in three types of orders:
+    1. **Inorder** 
+        - traverse from the **left** subtree to the **root** then to the **right** subtree
+        - normally used in problem with binary search tree (see [details](#binary-search-tree))
+    2. **Preorder**
+        - traverse from the **root** to the **left** subtree then to the **right** subtree. 
+        - normally used when we want to pass something from root node to leaf node (see [example](./Day13_bfs_binary_tree.md/#104-maximum-depth-of-binary-tree))
+    3. **Post order**
+        - traverse from the **left** subtree to the **right** subtree then to the **root**. 
+        - normally used when we want to pass something from leaf node to root node. (see [example](./Day13_bfs_binary_tree.md/#104-maximum-depth-of-binary-tree))
+        - Besides, post order traversal can be finished earlier by setting early termination case (see [example](./Day18_binary_tree.md/#way-1-recursive-approach-dfs-in-postorder-with-early-termination-case))
 
 - DFS is implemented using stack. Hence, the traversal of tree can be done in:\
 (a) recursive approach \
