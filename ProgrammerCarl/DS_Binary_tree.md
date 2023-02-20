@@ -34,6 +34,17 @@ For each node, the height difference of the left and right subtree of the node i
 
 ![](./images/20230216120011.png)  
 
+# Binary search tree
+Definition of Binary search tree:\
+(1) All the nodes in left subtree < current node \
+(2) All the nodes in right subtree > current node 
+
+Due to the definition of binary search tree, inorder traverse of binary search tree will result in a sorted array which is in ascending order.
+
+Hence, ways to solve problems involved binary search tree:\
+(1) dfs in postorder with narrower valid range as inputs for next layer (see [example](./Day17_binary_tree.md/#way-2-recursive-approach-dfs-in-postorder-with-narrower-valid-range-as-input-for-next-layer)) \
+(2) dfs in inorder with `pre` recording the last visited node (see [example](./Day18_binary_tree.md/#way-2-recursive-approach-dfs-in-inorder))\
+(3) serialise binary search tree in inorder, then do operations on the serialised array (see [example](./Day17_binary_tree.md/#way-1-serialise-binary-search-tree-in-inorder-then-check-if-the-serialised-list-is-monotonic))
 
 # Reference
 [Breadth-First Search (BFS) and Depth-First Search (DFS) for Binary Trees in Java](https://www.digitalocean.com/community/tutorials/breadth-first-search-depth-first-search-bfs-dfs#what-is-depth-first-search-dfs)\
