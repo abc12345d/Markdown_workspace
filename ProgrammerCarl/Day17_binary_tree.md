@@ -125,7 +125,7 @@ def isValidBST(self, root: Optional[TreeNode]) -> bool:
     
     return True
 ```
-### way 2: recursive approach with valid range
+### way 2: recursive approach (dfs in postorder with narrower valid range as input for next layer)
 ```PYTHON
 def isValidBST(self, root: Optional[TreeNode]) -> bool:
     def recur(curr, lower, upper):
