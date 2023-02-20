@@ -101,6 +101,10 @@ def searchBST(self, root: Optional[TreeNode], val: int) -> Optional[TreeNode]:
 ```
 
 # 98. Validate Binary Search Tree
+The characteristic of Binary search tree:
+(1) All the nodes in left subtree < current node 
+(2) All the nodes in right subtree > current node 
+
 ### way 1: serialise binary search tree in inorder, then check if the serialised list is monotonic
 ```PYTHON
 def isValidBST(self, root: Optional[TreeNode]) -> bool:
