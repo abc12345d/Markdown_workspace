@@ -1,14 +1,15 @@
 # 77. Combinations
-### way 1: backtracking without prunning
-![](./images/20230224175438.png)  
+We use `startIndex` to decide the next available range for backtracking.
+![](./images/20230302122846.png)
+### way 1: backtracking without prunning 
 ```PYTHON
 def combine(self, n: int, k: int) -> List[List[int]]:
-    def backtrack(start, n, k, path):
+    def backtrack(startIndex, n, k, path):
         if len(path) == k:
             res_list.append(path[:])
             return
 
-        for i in range(start, n+1):
+        for i in range(startIndex, n+1):
             path.append(i)
             backtrack(i + 1, n, k, path)
             path.pop()
