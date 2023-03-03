@@ -1,14 +1,16 @@
 # 216. Combination Sum III
+We use `startIndex` to decide the next available range for backtracking.
+![](./images/20230302125008.png)
 ### way 1: backtracking without prunning
 ```PYTHON
 def combinationSum3(self, k: int, n: int) -> List[List[int]]:
-    def backtrack(start, k, n, combination):
+    def backtrack(startIndex, k, n, combination):
         if len(combination) == k:
             if sum(combination) == n:
                 res_list.append(combination[:])
             return
 
-        for i in range(start, 10):
+        for i in range(startIndex, 10):
             combination.append(i)
             backtrack(i + 1, k, n, combination)
             combination.pop()
