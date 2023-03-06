@@ -9,6 +9,9 @@ def findSubsequences(self, nums: List[int]) -> List[List[int]]:
         if len(path) >= 2:
             res_list.append(path[:])
 
+        '''way 2:
+        used = set()
+        '''
         for i in range(startIndex, len(nums)):
         
             if path and path[-1] > nums[i]:
