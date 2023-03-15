@@ -61,7 +61,8 @@ The robot can only move either down or right at any point in time and its path t
 - For example, when `obstacleGrid = [[0,0,1],[1,0,0],[0,1,0]]`, the `dp` should be `[[1, 1, 0], [0, 1, 1], [0, 0, 1]]`.
 
 ![](./images/IMG_0AA612861B94-1.jpeg)
-
+Time complexity: O(no_row * no_col)\
+Space complexity: O(no_row * no_col)
 ```PYTHON
 def uniquePathsWithObstacles(self, obstacleGrid: List[List[int]]) -> int:
     if obstacleGrid[0][0] == 1: return 0
