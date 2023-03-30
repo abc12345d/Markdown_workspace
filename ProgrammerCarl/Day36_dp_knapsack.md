@@ -1,7 +1,7 @@
 # 416. Partition Equal Subset Sum
 ### way 1: dynamic programming
 Core idea: \
-Transform the question into knapsack problem which use dynamic programming algorithm.
+Transform the question into 1/0 knapsack problem which use dynamic programming algorithm.
 
 For example,
 ```
