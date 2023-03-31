@@ -22,9 +22,9 @@ Here we use [509. fibonacci number](./Day33_dynamic_programming.md/#509-fibonacc
 - For example, when `n = 10`, the `dp` should be `[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55].
 
 # Common questions involved dynamic programming
-### Knapsack problem
+### 0/1 Knapsack problem
 Description: \
-Given a set of items, each with a weight and a value, determine which items to include in the collection so that the total weight is less than or equal to a given limit and the total value is as large as possible.
+Given a set of items, each with a weight and a value, determine which items to include in the collection so that the total weight is less than or equal to a given limit and the total value is as large as possible. **Each item can only be added once.**
 
 E.g. 
 ``` 
@@ -67,13 +67,39 @@ def dp_with_1d_array_knapsack():
     # initialisation
     dp = [0] * (bag_weight + 1)
 
-    for i in range(len(value)):
+    for i in range(len(weight)):
         # must traverse the last bag weight first
         # so that the top left corner will not be overwrote
         for j in range(bag_weight, weight[i] - 1, -1):
             dp[j] = max(dp[j], dp[j - weight[i]] + value[i])
 
     print(dp)
+```
+### complete knapsack
+Description: \
+Given a set of items, each with a weight and a value, determine which items to include in the collection so that the total weight is less than or equal to a given limit and the total value is as large as possible. **Each item can be added more than once.**
+
+Algorithm for complete knapsack is highly similar to algorithm for 1/0 knapsack except the traverse order. Since each item can be added more than once for complete knapsack, we must traverse from `bag_weight = 0` instead of `bag_weight = bag limit`,so that we can take account of the situation where the item have been added.
+```PYTHON
+# update item_0 from bag_limit 
+# to bag_weight = 3 (right to left) 
+        0   1   2   3    4   
+0       0   0   0   15   15  
+
+# update item_0 from the first bag_weight which can include item_0 
+# to bag_weight = 3 (left to right)
+        0   1    2    3    4   
+0       0   15   30   45   0  
+```
+
+```PYTHON
+    # initialisation
+    dp = [0] * (bag_weight + 1)
+
+    for i in range(len(weight)):
+        # must traverse from the first bag_weight which can include item_i
+        for j in range(weight[i], bag_weight + 1):
+            dp[j] = max(dp[j], dp[j - weight[i]] + value[i])
 ```
 
 # Reference
