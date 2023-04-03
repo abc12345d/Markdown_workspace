@@ -90,3 +90,6 @@ def numSquares(self, n: int) -> int:
 
     return dp[n] 
 ```
+
+
+TODO: do leetcode (70. Climbing Stairs) in complete knapsack way
