@@ -52,6 +52,23 @@ by going through a loop with two pointers. Usually, we can reduce the time compl
 
 We compare the elements pointed by the two pointers instead of all the elements between the pointers (compared to [sliding window](#sliding-window)).
 
+#### Classic usage of two pointers:
+(1) fast & slow pointers
+```PYTHON
+def removeDuplicates(self, nums: List[int]) -> int:
+    if len(nums) == 1:
+        return 1
+
+    slow, fast = 1, 1
+    while fast < len(nums):
+        if not nums[fast] == nums[fast - 1]:
+            nums[slow] = nums[fast]
+            slow += 1
+        fast += 1
+
+    return slow
+```
+
 ### Sliding window
 #### Description:
 There are two types of sliding window:(1) fixed-size sliding window and (2) flexible-size sliding window. For fixed-size sliding window, the algorithms can be implemented with a `start` pointer and a `val` for window size. For flexible-size sliding window, we use `start` and `end` pointers to indicate the starting and ending position of the sliding window, respectively.
