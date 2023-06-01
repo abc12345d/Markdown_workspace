@@ -116,7 +116,7 @@ def removeElement(self, nums: List[int], val: int) -> int:
     return k
 ```
 # 26. Remove Duplicates from Sorted Array
-
+Core idea: slow & fast pointers
 ### Two pointers (slow & fast) solution: O(n)
 ```PYTHON
 def removeDuplicates(self, nums: List[int]) -> int:
