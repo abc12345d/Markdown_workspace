@@ -115,6 +115,23 @@ def removeElement(self, nums: List[int], val: int) -> int:
 
     return k
 ```
+# 26. Remove Duplicates from Sorted Array
+
+### Two pointers (slow & fast) solution: O(n)
+```PYTHON
+def removeDuplicates(self, nums: List[int]) -> int:
+    if len(nums) == 1:
+        return 1
+
+    slow, fast = 1, 1
+    while fast < len(nums):
+        if not nums[fast] == nums[fast - 1]:
+            nums[slow] = nums[fast]
+            slow += 1
+        fast += 1
+
+    return slow
+```
 
 # 35. Search Insert Position
 There are two possible endings for this question:\
