@@ -32,7 +32,10 @@ Maintained a monotonic decreasing queue (or monotonic increasing queue), new ele
 (2) maximum or minimum element in a sliding window: \
 Access the maximum/minimum element by looking at the start of the monotonic queue. This means that for a sliding window, we can easily keep track of its maximum/minimum element. When we insert an item from one side, we perform the monotonic insertion method on the deque, and when we remove an item from the other side, we simply pop the item on the other side if the index matches.
 
+### Complexity of using monotonic queue/stack
+The time complexity is O(N) because each element in the original array can only be pushed into and popped out of the monotonic queue/stack once.
 
+The space complexity is O(N) as there may be at most N elements in the monotonic queue/stack.
 
 # Reference
 [代码随想录 - 栈](https://programmercarl.com/%E6%A0%88%E4%B8%8E%E9%98%9F%E5%88%97%E7%90%86%E8%AE%BA%E5%9F%BA%E7%A1%80.html)\
