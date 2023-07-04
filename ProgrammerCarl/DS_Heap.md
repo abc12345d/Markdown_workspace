@@ -14,9 +14,79 @@ As a heap is a complete binary tree, it is more efficient to implement it in an 
 ### Operations of Heap
 #### Insertion in Heap
 When we insert an element, it always goes in the next empty spot(looking top to bottom and left to right). We first insert the element, then bubble it up until we get to the right spot.
+```
+Suppose the Heap is a Max-Heap as:
+      10
+    /    \
+   5      3
+  / \
+ 2   4
+
+The new element to be inserted is 15.
+
+Process:
+Step 1: Insert the new element at the end.
+      10
+    /    \
+   5      3
+  / \    /
+ 2   4  15
+
+Step 2: Heapify the new element following bottom-up 
+        approach.
+-> 15 is more than its parent 3, swap them.
+       10
+    /    \
+   5      15
+  / \    /
+ 2   4  3
+
+-> 15 is again more than its parent 10, swap them.
+       15
+    /    \
+   5      10
+  / \    /
+ 2   4  3
+
+Therefore, the final heap after insertion is:
+       15
+    /    \
+   5      10
+  / \    /
+ 2   4  3
+```
 
 #### Deletion in Heap
 We remove the root node of the heap, and swap the last added element to the root. As the last added elememt might not be the right spot, so we take the root element and bubble it down to the next layer by comparing with its children node 
+
+```
+Suppose the Heap is a Max-Heap as:
+      10
+    /    \
+   5      3
+  / \
+ 2   4
+
+The element to be deleted is root, i.e. 10.
+
+Process:
+The last element is 4.
+
+Step 1: Replace the last element with root, and delete it.
+      4
+    /    \
+   5      3
+  / 
+ 2   
+
+Step 2: Heapify root.
+Final Heap:
+      5
+    /    \
+   4      3
+  / 
+ 2
+```
 
 # Heap sort
 The time complexity of using heap in sorting is O(n log n). Both `heappush` and `heappop` operations need O(log n). Unlike other sorting algorithm, heap sort is not a stable sorting algorithm.
@@ -56,3 +126,4 @@ heapq._heappop_max(maxheap) # undocumented pop from maxheap
 [Wikipedia - heap (data structure)](https://en.wikipedia.org/wiki/Heap_(data_structure))\
 [StackOverFlow - What do I use for a max-heap implementation in Python?](https://stackoverflow.com/questions/2501457/what-do-i-use-for-a-max-heap-implementation-in-python)\
 [Python documentation - heapq module ](https://docs.python.org/3/library/heapq.html)
+[Insertion and Deletion in Heaps](https://www.geeksforgeeks.org/insertion-and-deletion-in-heaps/)
