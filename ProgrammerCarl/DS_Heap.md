@@ -125,5 +125,5 @@ heapq._heappop_max(maxheap) # undocumented pop from maxheap
 # Reference
 [Wikipedia - heap (data structure)](https://en.wikipedia.org/wiki/Heap_(data_structure))\
 [StackOverFlow - What do I use for a max-heap implementation in Python?](https://stackoverflow.com/questions/2501457/what-do-i-use-for-a-max-heap-implementation-in-python)\
-[Python documentation - heapq module ](https://docs.python.org/3/library/heapq.html)
-[Insertion and Deletion in Heaps](https://www.geeksforgeeks.org/insertion-and-deletion-in-heaps/)
+[Python documentation - heapq module ](https://docs.python.org/3/library/heapq.html)\
+[Geeksforgeeks - Insertion and Deletion in Heaps](https://www.geeksforgeeks.org/insertion-and-deletion-in-heaps/)
