@@ -16,53 +16,58 @@ def findContentChildren(self, g: List[int], s: List[int]) -> int:
 
 # 376. Wiggle Subsequence
 ![](20230306210619.png)
-### way 1: my version
+### way 1: greedy
+<img width="810" alt="image" src="https://github.com/abc12345d/algorithm_practice/assets/44512722/dbb609f6-ca56-4db0-9bf5-4b4c335fa353">
+
 ```PYTHON
 def wiggleMaxLength(self, nums: List[int]) -> int:
-    if len(nums) == 1:
-        return 1
-    
-    if len(nums) == 2 and nums[0] != nums[1]:
-        return 2
-
-    neg_counter, pos_counter = 1, 1
-    last_num = nums[0]
-    for i in range(1, len(nums)):
-
-        # first difference is positive
-        if pos_counter % 2 == 0:
-            if nums[i] < last_num:
-                pos_counter += 1
-        else:
-            if nums[i] > last_num:
-                pos_counter += 1
-    
-        # first difference is negative
-        if neg_counter % 2 == 0:
-            if nums[i] > last_num:
-                neg_counter += 1
-        else:
-            if nums[i] < last_num:
-                neg_counter += 1
-
-        last_num = nums[i]
-
-    return max(neg_counter, pos_counter)
-```
-### way 2: programmer Carl's version
-```PYTHON
-def wiggleMaxLength(self, nums: List[int]) -> int:
-    if len(nums) == 1:
-        return 1
-    
-    curr_diff , pre_diff = 0, 0
-    result = 1 
-    for i in range(1, len(nums)):
-        curr_diff = nums[i] - nums[i-1]
-        if (pre_diff >= 0 and curr_diff < 0) or (pre_diff <= 0 and curr_diff > 0):
+    prev_diff = 0
+    result = 1
+    for index in range(1,len(nums)):
+        curr_diff = nums[index] - nums[index-1]
+        if (curr_diff > 0 and prev_diff <= 0) or (curr_diff < 0 and prev_diff >= 0):
             result += 1
-            pre_diff = curr_diff
+
+            # below line must inside the if-statement
+            # otherwise, fail case: nums = [1,7,4,5,5,7]
+            prev_diff = curr_diff
 
     return result
 ```
+
+### way 2: dp
+(1) Determine the dp array and the meaning of its subscripts\
+`up` = the length of the longest wiggle subsequence where the difference of last two numbers is positive\
+`down` = the length of the longest wiggle subsequence where the difference of last two numbers is negative
+
+(2) Determine the recurrence formula\
+`up = down + 1`\
+`down = up + 1`
+
+(3) The initialisation of the dp array\
+`up = 1`\
+`down = 1`
+
+(4) Determine the traversal order\
+Doesn't matter which order we traverse.
+
+(5) Derive the final result \
+`max(up,down)` 
+
+```PYTHON
+def wiggleMaxLength(self, nums: List[int]) -> int:
+    up = 1
+    down = 1
+
+    for index in range(1,len(nums)):
+        if nums[index] > nums[index - 1]:
+            up = down + 1
+        elif nums[index] < nums[index - 1]:
+            down = up + 1
+
+    return max(up, down)
+```
 TODO: 53. Maximum Subarray
+
+# reference
+[bilibili- 跑马拉松的程序员](https://www.bilibili.com/video/BV1EY4y1H79j/?spm_id_from=333.337.search-card.all.click&vd_source=acc545154bc52bac86d7eca5cf3da83e)
