@@ -75,7 +75,7 @@ def maxSubArray(self, nums: List[int]) -> int:
     dp = nums[0]
     for num in nums[1:]:
         dp = max(dp + num, num)
-        maxSum = max(maxSum, dpm)
+        maxSum = max(maxSum, dp)
     return maxSum
 ```
 
