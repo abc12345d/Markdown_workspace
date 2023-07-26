@@ -1,4 +1,5 @@
 # 122. Best Time to Buy and Sell Stock II
+### way 1: greedy
 ![](./images/20230306231408.png)
 ```PYTHON
 def maxProfit(self, prices: List[int]) -> int:
@@ -10,6 +11,31 @@ def maxProfit(self, prices: List[int]) -> int:
             profit += curr_diff
 
     return profit
+```
+### way 2: dp
+```PYTHON
+def maxProfit(self, prices: List[int]) -> int:
+    if len(prices) <= 1: return 0
+
+    # maxProfit earned when hold/unhold the stock on i-th day
+    hold = [0] * len(prices)
+    unhold = [0] * len(prices)
+
+    hold[0] = -prices[0]
+    for day in range(1,len(prices)):
+        # two situations may lead to hold stock on day:
+        # hold since yesterday
+        # unhold but buy on today
+        maxProfitAfterBuying = unhold[day-1] - prices[day]
+        hold[day] = max(hold[day-1], maxProfitAfterBuying)
+
+        # two situations may lead to unhold stock on day:
+        # unhold since yesterday
+        # hold but sell on today
+        maxProfitAfterSelling = hold[day-1] + prices[day] 
+        unhold[day] = max(unhold[day-1], maxProfitAfterSelling)
+
+    return unhold[-1]
 ```
 
 # 55. Jump Game
@@ -68,3 +94,6 @@ def jump(self, nums: List[int]) -> int:
     
     return result
 ```
+
+# reference
+[bilibili - 林先先森](https://www.bilibili.com/video/BV1HY4y1S7WB/?spm_id_from=333.337.search-card.all.click&vd_source=acc545154bc52bac86d7eca5cf3da83e)
