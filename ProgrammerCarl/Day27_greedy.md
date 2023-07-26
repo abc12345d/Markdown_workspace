@@ -67,7 +67,17 @@ def wiggleMaxLength(self, nums: List[int]) -> int:
 
     return max(up, down)
 ```
-TODO: 53. Maximum Subarray
+# 53. Maximum Subarray
+### way 1: dp
+```PYTHON
+def maxSubArray(self, nums: List[int]) -> int:
+    maxSum = nums[0]
+    dp = nums[0]
+    for num in nums[1:]:
+        dp = max(dp + num, num)
+        maxSum = max(maxSum, dpm)
+    return maxSum
+```
 
 # reference
 [bilibili- 跑马拉松的程序员](https://www.bilibili.com/video/BV1EY4y1H79j/?spm_id_from=333.337.search-card.all.click&vd_source=acc545154bc52bac86d7eca5cf3da83e)
