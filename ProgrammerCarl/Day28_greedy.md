@@ -39,23 +39,49 @@ def maxProfit(self, prices: List[int]) -> int:
 ```
 
 # 55. Jump Game
+### way 1: greedy
 ```PYTHON
 def canJump(self, nums: List[int]) -> bool:
     if len(nums) == 1: return True
     
-    curr = nums[0]
+    availableStep = nums[0]
     for i in range(1, len(nums)):
-        if curr == 0:
+        if availableStep == 0:
             return False
 
-        curr -= 1
+        availableStep -= 1
 
-        if nums[i] > curr:
-            curr = nums[i]
+        if nums[i] > availableStep:
+            availableStep = nums[i]
 
-        if i + curr >= len(nums)-1:
+        # early termination
+        if i + availableStep >= len(nums)-1:
             return True
 ```
+### way 2: greedy
+stand at the jumpFromIndex and always jump to jumpToIndex which can achieve biggest move until reaching the last element or reaching somewhere there is no available steps
+```PYTHON
+def canJump(self, nums: List[int]) -> bool:
+
+    jumpFromIndex = 0 
+    while jumpFromIndex < len(nums) - 1:
+        jumpToIndex = -1
+        maxReachable = 0
+
+        for idx in range(jumpFromIndex + 1, nums[jumpFromIndex] + jumpFromIndex + 1 ):
+            if idx >= len(nums) - 1:  return True
+            
+            if nums[idx] + idx >= maxReachable:
+                jumpToIndex = idx
+                maxReachable = nums[idx] + idx
+
+        if -1 == jumpToIndex :
+            return False
+        jumpFromIndex = jumpToIndex
+
+    return True
+```
+
 # 45. Jump Game II
 ### way 1: 
 time complexity: O(n<sup>k</sup>), where k = the minimum number of jumps to reach nums[n - 1] from nums[0]\
