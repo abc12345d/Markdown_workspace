@@ -53,7 +53,7 @@ def largestSumAfterKNegations(self, nums: List[int], k: int) -> int:
 ```
 
 # 134. Gas Station
-### my version:
+### greedy version 1:
 ```PYTHON
 def canCompleteCircuit(self, gas: List[int], cost: List[int]) -> int:
     if sum(gas) < sum(cost): return - 1
@@ -69,6 +69,28 @@ def canCompleteCircuit(self, gas: List[int], cost: List[int]) -> int:
             start = i + 1
 
     return start 
+```
+### greedy version 2:
+```PYTHON
+def canCompleteCircuit(self, gas: List[int], cost: List[int]) -> int:
+        startIndex = 0
+        tank = gas[0] - cost[0] 
+        for index in range(1,len(gas)):
+            diff = gas[index] - cost[index]
+            if diff > tank + diff:
+                startIndex = index
+                tank = diff
+            else:
+                tank = tank + diff
+        
+        counter = 0
+        while counter <= startIndex:
+            if tank < 0: return -1
+        
+            tank = tank + gas[counter] - cost[counter]
+            counter += 1
+        
+        return startIndex
 ```
 
 # 135. Candy
