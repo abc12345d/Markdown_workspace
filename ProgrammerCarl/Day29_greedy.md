@@ -1,37 +1,52 @@
 # 1005. Maximize Sum Of Array After K Negations
-### my version
+### sorting + greedy
 ```PYTHON
 def largestSumAfterKNegations(self, nums: List[int], k: int) -> int:
-        min_v = min(nums) 
-        while k > 0:
-            for i in range(len(nums)):
-                if min_v == 0:
-                    k = 0
-                elif nums[i] == min_v:
-                    nums[i] = -nums[i]
-                    min_v = min(nums)
-                    k -= 1
+        nums.sort()
+        minIndex = -1
+        for index in range(len(nums)):
+            if k == 0:
+                break
+        
+            if nums[index] < 0:
+                nums[index] = -nums[index]
+                k -= 1
+            elif nums[index] == 0:
+                k = 0
+                break
+            else:
+                if nums[index] > 0 and index > 0 and nums[index] > nums[index-1]:
+                    minIndex = index-1
+                else:
+                    minIndex = index
+                break
 
-                if k == 0:
-                    break
-    
+        # minIndex == - 1 and k > 0 which means the nums only contain negative integer
+        # minIndex != -1 means the minIndex is points to smallest integer in the current nums array
+        if ((minIndex == -1 and k > 0) or minIndex != -1)  and k % 2 == 1:
+            nums[minIndex] = -nums[minIndex]
+        
         return sum(nums)
 ```
 ### programmer Carl's version
 ```PYTHON
 def largestSumAfterKNegations(self, nums: List[int], k: int) -> int:
     nums.sort(key=lambda x: abs(x))
+
+    # makes k negative integers into positive integers
     for i in range(len(nums)-1, -1, -1):
         if k == 0: 
             return sum(nums)
         if nums[i] < 0:
             nums[i] = -nums[i]
             k -= 1
-            
+
     if nums[0] == 0:
+        # k >= 0 and nums[0] = 0
         return sum(nums)
-    
-    if k % 2 == 1:
+
+    elif k % 2 == 1:
+        # num[0] != 0 and k != 0 and k is odd number 
         nums[0] = -nums[0]
 
     return sum(nums)
