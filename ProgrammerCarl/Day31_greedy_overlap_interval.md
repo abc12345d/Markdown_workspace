@@ -21,6 +21,8 @@ def eraseOverlapIntervals(self, intervals: List[List[int]]) -> int:
 ```
 
 # 763. Partition Labels
+### version 1: greedy
+Time complexity: O(4n)
 ```PYTHON
 def partitionLabels(self, s: str) -> List[int]:
         # store alphabet as key and the position it appeared as value
@@ -64,6 +66,35 @@ def partitionLabels(self, s: str) -> List[int]:
                 result[i] = result[i] - result[i-1]
         
         return result
+```
+### version 2: greedy 
+Time complexity: O(2n)
+```PYTHON
+def partitionLabels(self, s: str) -> List[int]:
+    # store letter as key and the first index and last index it appeared as value
+    letterIntervalDict = {}
+    for index in range(len(s)):
+        if s[index] in letterIntervalDict.keys():
+            letterIntervalDict[s[index]][1] = index
+        else:
+            letterIntervalDict[s[index]] = [index,index]
+
+    intervals = list(letterIntervalDict.values())
+    result = []
+    prevStart = 0
+    prevEnd = intervals[0][1]
+    
+    for [start,end] in intervals[1:]:
+        if start < prevEnd:
+            # overlapping, store the larger end so that each letter appears in at most one part
+            prevEnd = max(end, prevEnd)
+        else:
+            result.append(prevEnd-prevStart+1)
+            prevEnd = end
+            prevStart = start
+
+    result.append(prevEnd-prevStart+1)
+    return result
 ```
 
 # 56. Merge Intervals
