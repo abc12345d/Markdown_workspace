@@ -6,17 +6,17 @@ def eraseOverlapIntervals(self, intervals: List[List[int]]) -> int:
     intervals.sort(key = lambda x: x[0])
 
     result  = 0
-    last_end = intervals[0][1]
+    lastEnd = intervals[0][1]
     for start, end in intervals[1:]:
-        if start >= last_end:
-            # not overlapping, update last_end
-            last_end = end
-        else:
+        if start < lastEnd:
             # overlapping
             result += 1
             # update last_end in this way is functionally equal to delete the interval with larger endpoints
-            last_end = min(last_end, end)
-        
+            lastEnd = min(lastEnd,end)
+        else:
+            # not overlapping, update last_end
+            lastEnd = end        
+
     return result
 ```
 
