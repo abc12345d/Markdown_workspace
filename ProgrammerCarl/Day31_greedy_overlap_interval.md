@@ -102,18 +102,18 @@ def partitionLabels(self, s: str) -> List[int]:
 def merge(self, intervals: List[List[int]]) -> List[List[int]]:
     intervals.sort(key = lambda x: x[0])
 
-    result = []
-    last_start = intervals[0][0]
-    last_end = intervals[0][1]
-    for start, end in intervals[1:]:
-        if start <= last_end:
-            last_end = max(last_end, end)
+    prevStart = intervals[0][0]
+    prevEnd = intervals[0][1]
+    nonOverlapInterval = []
+    for [start,end] in intervals:
+        if start <= prevEnd:
+            # overlapping
+            prevEnd = max(end,prevEnd)
         else:
-            result.append([last_start,last_end])
-            last_start = start
-            last_end = end
-
-    result.append([last_start,last_end])
-
-    return result
+            nonOverlapInterval.append([prevStart,prevEnd])
+            prevStart = start
+            prevEnd = end
+    
+    nonOverlapInterval.append([prevStart,prevEnd])
+    return nonOverlapInterval
 ```
