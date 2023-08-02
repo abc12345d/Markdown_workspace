@@ -50,8 +50,8 @@ def monotoneIncreasingDigits(self, n: int) -> int:
 
 # 968. Binary Tree Cameras
 
-### way 1: greedy algorithm
-Start installing camera from the parents of leaf nodes. For each node, there are three types of returns:\
+### way 1: postorder dfs + greedy algorithm
+Start installing camera from the parents of leaf nodes. For each node, there are three situations thus there are three types of returns:\
 (1) return 0, if there is no camera on the node and the node is not monitored by any camera\
 (2) return 1, if there is a camera installed on the node\
 (3) return 2, if the node is monitored by some cameras\
