@@ -80,6 +80,7 @@ Description: \
 Given a set of items, each with a weight and a value, determine which items to include in the collection so that the total weight is less than or equal to a given limit and the total value is as large as possible. **Each item can be added more than once.**
 
 Algorithm for complete knapsack is highly similar to algorithm for 1/0 knapsack except the traverse order. Since each item can be added more than once for complete knapsack, we must traverse from `bag_weight = 0` instead of `bag_weight = bag limit`,so that we can take account of the situation where the item have been added.
+
 ```PYTHON
 # update item_0 from bag_limit 
 # to bag_weight = 3 (right to left) 
@@ -105,4 +106,4 @@ Algorithm for complete knapsack is highly similar to algorithm for 1/0 knapsack 
 # Reference
 [Introduction to Algorithms by Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, and Clifford Stein](https://en.wikipedia.org/wiki/Introduction_to_Algorithms)\
 [动态规划：01背包理论基础](https://programmercarl.com/背包理论基础01背包-1.html)\
-[动态规划：01背包理论基础（滚动数组](https://programmercarl.com/背包理论基础01背包-2.html#一维dp数组-滚动数组)
+[动态规划：01背包理论基础（滚动数组](https://programmercarl.com/背包理论基础01背包-2.html#一维dp数组-滚动数组)\
