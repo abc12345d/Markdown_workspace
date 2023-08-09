@@ -31,6 +31,19 @@ def integerBreak(self, n: int) -> int:
 
     return dp[n]
 ```
+### way 2: dp
+```PYTHON
+def integerBreak(self, n: int) -> int:
+    dp = [0] * (n+1)
+
+    for index in range(2, n+1):
+        # find maximum product that sum to index
+        for num1 in range(1,index//2+1):
+            num2 = index - num1
+            dp[index] = max(dp[index],num2*dp[num1], num1*dp[num2], num1*num2)
+
+    return dp[n]
+```
 
 # 96. Unique Binary Search Trees
 ### way 1: dynamic programming
