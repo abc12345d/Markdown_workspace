@@ -1,11 +1,14 @@
 # 203. Remove Linked List Elements
 To delete a node in a linked list, we need both the previous node and the next node of the desired node (see figure). However, a linked list's head node does not have a previous node. Therefore, how we handle the deletion of a head node will differ from how we handle the deletion of a non-head node. 
-![](./images/20230204124443.png) 
+
+<img width="725" alt="20230204124443" src="https://github.com/abc12345d/algorithm_practice/assets/44512722/6529f3ee-ca6b-474f-9fcf-c3c5b07adfa8">
+
 There are two ways to address this situation:\
 (1) Write two separate while loops, one for handling the head node and another one for handling the non-head nodes. 
 (2) Add a dummy head node so that the real head node becomes like any other node.
 
 ### way(1): two separate while-loops for handling the head node and non-head nodes differently
+
 ```PYTHON
 def removeElements(self, head: Optional[ListNode], val: int) -> Optional[ListNode]:
         
@@ -24,7 +27,9 @@ def removeElements(self, head: Optional[ListNode], val: int) -> Optional[ListNod
 
         return head
 ```
+
 ### way(2): add a dummy head node
+
 ```PYTHON
 def removeElements(self, head: Optional[ListNode], val: int) -> Optional[ListNode]:
         dummy_head = ListNode(val = -1, next = head)
@@ -41,14 +46,18 @@ def removeElements(self, head: Optional[ListNode], val: int) -> Optional[ListNod
 
 # 707. Design Linked List
 To simplify the insertion and deletion in linked list, the `head` of the MyLinkedList class is set to point to a dummy head node. Besides, most of the methods of MyLinkedList class will receive index as input, so adding a `size` variable will make the implementation easier.
+
 ```PYTHON
     def __init__(self):
         # intialise with a dummy head node
         self.head = ListNode(val=-1)
         self.size = 0
 ```
+
 The while loop in these methods (`get`, `addAtTail`, `addAtIndex`, `deleteAtIndex`) are used to locate desired node. Since insertion and deletion in linked list require both the previous node and the next node of the desired node, hence functions involve these two operations should start from dummy head node (see figure). Moreover, we must update the `self.size` for methods involving insertion and deletion in linked list.
-![](./images/20230205190351.png)  
+
+<img width="742" alt="20230205190351" src="https://github.com/abc12345d/algorithm_practice/assets/44512722/69ae6a48-84bb-4f57-a1a8-ecf51c6a6961">
+
 ```PYTHON
 def get(self, index: int) -> int:
         if(index >= self.size or index < 0):
@@ -101,10 +110,12 @@ def deleteAtIndex(self, index: int) -> None:
     self.size -= 1
 ```
 
-
 # 206. Reverse Linked List
-![](./images/20230205173548.png)  
+
+<img width="766" alt="20230205173548" src="https://github.com/abc12345d/algorithm_practice/assets/44512722/f600bdd6-06aa-4760-aa5c-40bd503dfed5">
+
 ### way(1) iterative approach
+
 ```PYTHON
 def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
     
@@ -119,7 +130,9 @@ def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:
     
     return pre
 ```
+
 ### way(2) recursive approach
+
 ```PYTHON
 def reverseList(self, head: Optional[ListNode]) -> Optional[ListNode]:   
     def reverse(curr,pre):
