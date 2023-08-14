@@ -1,7 +1,10 @@
 # 216. Combination Sum III
 We use `startIndex` to decide the next available range for backtracking.
-![](./images/20230302125008.png)
+
+<img width="963" alt="20230302125008" src="https://github.com/abc12345d/algorithm_practice/assets/44512722/9b4cfe0b-0491-44de-8707-3c535aa1e220">
+
 ### way 1: backtracking without prunning
+
 ```PYTHON
 def combinationSum3(self, k: int, n: int) -> List[List[int]]:
     def backtrack(startIndex, k, n, combination):
@@ -19,8 +22,11 @@ def combinationSum3(self, k: int, n: int) -> List[List[int]]:
     backtrack(1, k, n, [])
     return res_list
 ```
+
 ### way 2: backtracking with prunning
-![](./images/20230224202606.png)  
+
+<img width="760" alt="20230224202606" src="https://github.com/abc12345d/algorithm_practice/assets/44512722/a24d446f-8dcd-4ec4-8547-ac2de4cac94c">
+
 ```PYTHON
 def combinationSum3(self, k: int, n: int) -> List[List[int]]:
     def backtrack(start, k, n, combination, accum):
@@ -53,6 +59,7 @@ def combinationSum3(self, k: int, n: int) -> List[List[int]]:
 ```
 
 # 17. Letter Combinations of a Phone Number
+
 ```PYTHON
 def letterCombinations(self, digits: str) -> List[str]:
     def backtrack(index, path, digits):
