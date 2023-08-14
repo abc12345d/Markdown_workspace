@@ -1,6 +1,9 @@
 # 93. Restore IP Addresses
-![](./images/20230227170728.png)  
+
+<img width="805" alt="20230227170728" src="https://github.com/abc12345d/algorithm_practice/assets/44512722/c083e5ff-0fa6-4276-b5a1-0a41edf38170">
+
 ### way 1: backtracking with startIndex and lastIndex
+
 ```PYTHON
 def restoreIpAddresses(self, s: str) -> List[str]:
     def isValidSubIP(s):
@@ -36,7 +39,9 @@ def restoreIpAddresses(self, s: str) -> List[str]:
     backtrack([], s, 0)
     return res_list
 ```
+
 ### way 2: backtracking with smaller string
+
 ```PYTHON
 def restoreIpAddresses(self, s: str) -> List[str]:
     def isValidSubIP(s):
@@ -72,8 +77,11 @@ def restoreIpAddresses(self, s: str) -> List[str]:
     backtrack([], s)
     return res_list
 ```
+
 # 78. Subsets
-![](./images/20230228113427.png)
+
+<img width="776" alt="20230228113427" src="https://github.com/abc12345d/algorithm_practice/assets/44512722/5d57d1f9-6cf0-4ead-9f4b-135a41fd6a49">
+
 For backtracking in problem involved subsets, we remove duplicates at the branch level by using `startIndex` like in [backtracking in problem involved combination](./Day23_backtracking_combination_partition.md/#40-combination-sum-ii). However, instead of only recording the `path` when we reach the leaf node of the state-space tree, we record the `path` at every node while we traverse the state-space tree using backtracking.
 
 ```PYTHON
@@ -93,8 +101,10 @@ def subsets(self, nums: List[int]) -> List[List[int]]:
     backtrack(0, nums, [])
     return res_list
 ```
+
 # 90. Subsets II 
 ### way 1: with an extra array `used`
+
 ```PYTHON
 def subsetsWithDup(self, nums: List[int]) -> List[List[int]]:
     def backtrack(startIndex, nums, path, used):
@@ -120,7 +130,9 @@ def subsetsWithDup(self, nums: List[int]) -> List[List[int]]:
     backtrack(0, sorted(nums), [], used)
     return res_list
 ```
+
 ### way 2: without any extra array
+
 ```PYTHON
 def subsetsWithDup(self, nums: List[int]) -> List[List[int]]:
     def backtrack(startIndex, nums, path):
