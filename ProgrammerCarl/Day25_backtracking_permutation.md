@@ -1,5 +1,7 @@
 # 491. Non-decreasing Subsequences
-![](./images/20230228150406.png)
+
+<img width="754" alt="20230228150406" src="https://github.com/abc12345d/algorithm_practice/assets/44512722/5e4be1e5-d694-47cc-b49c-727a77b039d7">
+
 ```PYTHON
 def findSubsequences(self, nums: List[int]) -> List[List[int]]:
     def backtrack(startIndex, path, nums):
@@ -39,6 +41,7 @@ def findSubsequences(self, nums: List[int]) -> List[List[int]]:
 
 # 46. Permutations
 ### way 1: with an extra array `used`
+
 ```PYTHON
 def permute(self, nums: List[int]) -> List[List[int]]:
     def backtrack(nums, path, used):
@@ -60,7 +63,9 @@ def permute(self, nums: List[int]) -> List[List[int]]:
     backtrack(nums, [], [False] * len(nums))
     return res_list
 ```
+
 ### way 2: without any extra array
+
 ```PYTHON
 def permute(self, nums: List[int]) -> List[List[int]]:
     def backtrack(path, unused, used):
@@ -87,6 +92,7 @@ def permute(self, nums: List[int]) -> List[List[int]]:
 
 # 47. Permutations II
 ### way 1: `used` set to remove duplicate in tree layer and `.count()` to remove extra in branch level
+
 ```PYTHON
 def permuteUnique(self, nums: List[int]) -> List[List[int]]:
     def backtrack(nums, path):
@@ -112,7 +118,9 @@ def permuteUnique(self, nums: List[int]) -> List[List[int]]:
     backtrack(nums, [])
     return res_list
 ```
+
 ### way 2: `used[i-1] == False` represent duplicates in tree layer and `used[i] == true` represent extra in branch layer
+
 ```PYTHON
 def permuteUnique(self, nums: List[int]) -> List[List[int]]:
     def backtrack(nums, path, used):
