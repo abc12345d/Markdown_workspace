@@ -1,6 +1,7 @@
 # 559. Maximum Depth of N-ary Tree
 The maximum depth of a n-nary tree is equal to the height of the root node. (see more details on [104. Maximum Depth of Binary Tree](./Day13_bfs_binary_tree.md/#104-maximum-depth-of-binary-tree))
 ### way 1: recursive approach (dfs in post order)
+
 ```PYTHON
 def maxDepth(self, root: 'Node') -> int:
     def get_height(curr):
@@ -17,7 +18,9 @@ def maxDepth(self, root: 'Node') -> int:
     
     return get_height(root)
 ```
+
 ### way 2: iteractive approach (bfs)
+
 ```PYTHON
 """
 # Definition for a Node.
@@ -53,6 +56,7 @@ class Solution:
 ### way 1: iterative approach (bfs)
 Time complexity: O(n)\
 Space complexity: O(n)
+
 ```PYTHON
 from collections import deque
 class Solution:
@@ -77,9 +81,11 @@ class Solution:
         
         return no_nodes
 ```
+
 ### way 2: recursive approach (dfs in post order)
 Time complexity: O(n)\
 Space complexity: O(log n), which includes stack for recursion
+
 ```PYTHON
 def countNodes(self, root: Optional[TreeNode]) -> int:
     def get_no_children(curr):
@@ -96,12 +102,16 @@ def countNodes(self, root: Optional[TreeNode]) -> int:
     
     return get_no_children(root) + 1
 ```
+
 ### way 3: recursive approach after considering the characteristic of complete binary tree
 As contrast to the way 1 and way 2 which require the traversal of the whole tree, the way 3 runs in less than O(n) time complexity. For example, the way 3 don't need to visit the nodes in grey (see below figure).
-![](./images/20230218201151.png)  
+
+<img width="900" alt="20230218201151" src="https://github.com/abc12345d/algorithm_practice/assets/44512722/8456438d-a4a3-4b58-969a-487bd9c3a4e2">
+
 
 Time complexity: O (log n * log n), since we run O(log n) to check the depth and we have to call the `get_no_nodes` for each level\
 Space complexity: O(log n)
+
 ```PYTHON
 def countNodes(self, root: Optional[TreeNode]) -> int:
     def get_no_nodes(curr):
