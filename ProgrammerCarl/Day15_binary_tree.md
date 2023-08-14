@@ -3,6 +3,7 @@
 Way 1 is less efficient as we will apply the `get_height` to visited node again.\
 Time complexity: O(n<sup>2</sup>)\
 Space complexity: O(log n)
+
 ```PYTHON
 def isBalanced(self, root: Optional[TreeNode]) -> bool:
     def get_height(curr):
@@ -18,10 +19,12 @@ def isBalanced(self, root: Optional[TreeNode]) -> bool:
     
     return self.isBalanced(root.left) and self.isBalanced(root.right)
 ```
+
 ### way 2: recursive approach
 Way 2 is more efficient compared to way 1 since we just return -1 once we have found unbalanced subtree.\
 Time complexity: O(n)\
 Space complexity: O(log n)
+
 ```PYTHON
 def isBalanced(self, root: Optional[TreeNode]) -> bool:
     def get_height(curr):
@@ -44,9 +47,13 @@ def isBalanced(self, root: Optional[TreeNode]) -> bool:
 
     return True if get_height(root) != -1 else False
 ```
+
 # 257. Binary Tree Paths
-![](./images/20230219112428.png)   
+
+<img width="969" alt="20230219112428" src="https://github.com/abc12345d/algorithm_practice/assets/44512722/6fca39ec-51b3-46ae-9481-13aceafe2d47">
+
 ### way 1: as our input to next level is a 'mutable' path, we need to `path.pop()` when backtracking
+
 ```PYTHON
 def binaryTreePaths(self, root: Optional[TreeNode]) -> List[str]:
     def recur(curr, path):
@@ -68,7 +75,9 @@ def binaryTreePaths(self, root: Optional[TreeNode]) -> List[str]:
     recur(root, [])
     return res_list
 ```
+
 ### way 2: as our input to next level is a new path, so we don't need to do  anything when backtracking
+
 ```PYTHON
 def binaryTreePaths(self, root: Optional[TreeNode]) -> List[str]:
     def recur(curr, path):
@@ -88,7 +97,9 @@ def binaryTreePaths(self, root: Optional[TreeNode]) -> List[str]:
     recur(root, [])
     return res_list
 ```
+
 # 404. Sum of Left Leaves
+
 ```PYTHON
 def sumOfLeftLeaves(self, root: Optional[TreeNode]) -> int:
     def recur(curr):
