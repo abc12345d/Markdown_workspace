@@ -1,5 +1,6 @@
 # 513. Find Bottom Left Tree Value
 ### way 1: bfs
+
 ```PYTHON
 from collections import deque
 class Solution:
@@ -26,7 +27,9 @@ class Solution:
 
                 size -= 1
 ```
+
 ### way 2: bfs with extra variable for storing the leftmost value 
+
 ```PYTHON
 from collections import deque
 class Solution:
@@ -48,8 +51,10 @@ class Solution:
 
         return result
 ```
+
 ### way 3: recursive approach 
 Use `result` for storing the leftmost value and `max_depth` for storing the depth of the value, update these two variables if encounter a leaf node which has larger depth.
+
 ```PYTHON
 def findBottomLeftValue(self, root: Optional[TreeNode]) -> int:
     def recur(curr, depth):
@@ -78,7 +83,9 @@ def findBottomLeftValue(self, root: Optional[TreeNode]) -> int:
 
 # 112. Path Sum
 For this question, we only need one path where sum equal to `targetSum` so we can terminate the backtracking early by return `True`.
-![](./images/20230219184640.png)  
+
+<img width="784" alt="20230219184640" src="https://github.com/abc12345d/algorithm_practice/assets/44512722/84a89ec1-be6e-411f-8b9a-d7ffc3963677">
+
 ```PYTHON
 def hasPathSum(self, root: Optional[TreeNode], targetSum: int) -> bool:
     def recur(curr, target):
@@ -108,10 +115,15 @@ def hasPathSum(self, root: Optional[TreeNode], targetSum: int) -> bool:
     
     return recur(root, targetSum - root.val)
 ```
+
 # 113. Path Sum II
 Unlike [Leetcode 112. Path Sum](./Day16_binary_tree.md/#112-path-sum), we need all the paths where sum equal to `targetSum`. Hence, we don't need any return value for the `recur` function as we have to traverse the whole binary tree 
-![](./images/20230219184748.png)   
+
+<img width="779" alt="20230219184748" src="https://github.com/abc12345d/algorithm_practice/assets/44512722/02217a75-7980-4849-a828-1ab33e74c579">
+
+
 ### way 1: backtracking with 'immutable' path
+
 ```PYTHON
 def pathSum(self, root: Optional[TreeNode], targetSum: int) -> List[List[int]]:
     def recur(curr, accum, path):
@@ -135,7 +147,9 @@ def pathSum(self, root: Optional[TreeNode], targetSum: int) -> List[List[int]]:
     recur(root, root.val, [root.val])
     return res_list
 ```
+
 ### way 2: backtracking with 'mutable' path
+
 ```PYTHON
 def pathSum(self, root: Optional[TreeNode], targetSum: int) -> List[List[int]]:
     def recur(curr, accum, path):
@@ -167,8 +181,11 @@ def pathSum(self, root: Optional[TreeNode], targetSum: int) -> List[List[int]]:
     recur(root, root.val, [root.val])
     return res_list
 ```
+
 # 106. Construct Binary Tree from Inorder and Postorder Traversal
-![](./images/20230219220759.png)  
+
+<img width="900" alt="20230219220759" src="https://github.com/abc12345d/algorithm_practice/assets/44512722/fb0124ba-8ad4-465d-9430-73bc9019c88f">
+
 ```PYTHON
 def buildTree(self, inorder: List[int], postorder: List[int]) -> Optional[TreeNode]:
     if not postorder:
@@ -190,8 +207,11 @@ def buildTree(self, inorder: List[int], postorder: List[int]) -> Optional[TreeNo
 
     return TreeNode(val = mid, left = leftNode, right = rightNode)
 ```
+
 # 105. Construct Binary Tree from Preorder and Inorder Traversal
-![](./images/20230219220920.png)  
+
+<img width="899" alt="20230219220920" src="https://github.com/abc12345d/algorithm_practice/assets/44512722/c21a4f78-cae3-4e7d-831e-4ab2ea62c6fd">
+
 ```PYTHON
 def buildTree(self, preorder: List[int], inorder: List[int]) -> Optional[TreeNode]:
     if not preorder:
@@ -208,9 +228,9 @@ def buildTree(self, preorder: List[int], inorder: List[int]) -> Optional[TreeNod
     right_pre = preorder[pointer+1:]
 
     return TreeNode(val = mid, left = self.buildTree(left_pre,left_in), right = self.buildTree(right_pre, right_in))
-    
 
 ```
+
 #### TODO: q112 way3 - iteractive approach with stack
 #### TODO: the performance of q106 is too worse, try improve it
 #### TODO: the performance of q105 is too worse, try improve it
