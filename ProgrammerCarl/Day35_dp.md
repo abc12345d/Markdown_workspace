@@ -6,7 +6,7 @@
 (2) Determine the recurrence formula
 - `dp[i] = max([max(dp[i-j]*j,(i-j) * j ) for j in range(1, i//2 + 1)])`
 
-![](./images/20230316123211.png)
+<img width="913" alt="20230316123211" src="https://github.com/abc12345d/algorithm_practice/assets/44512722/67297809-833a-41ed-9986-5515e06fc4ee">
 
 (3) The initialisation of the `dp` array
 - `dp[0] = 0, dp[1] = 0, dp[2] = 1` 
@@ -19,6 +19,7 @@
 
 Time complexity: O(n<sup>2</sup>)
 Space complexity: O(n)
+
 ```PYTHON
 def integerBreak(self, n: int) -> int:
     # initialisation of dp array
@@ -32,6 +33,7 @@ def integerBreak(self, n: int) -> int:
     return dp[n]
 ```
 ### way 2: dp
+
 ```PYTHON
 def integerBreak(self, n: int) -> int:
     dp = [0] * (n+1)
@@ -52,7 +54,8 @@ def integerBreak(self, n: int) -> int:
 
 (2) Determine the recurrence formula
 - `dp[i] = sum([dp[j - 1] * dp[i - j] for j in range(1, i + 1)])`
-![](./images/20230317115907.png)
+
+<img width="956" alt="20230317115907" src="https://github.com/abc12345d/algorithm_practice/assets/44512722/86f764fe-d9f1-4013-88fb-dcb5fd04b9bb">
 
 (3) The initialisation of the `dp` array
 - `dp[0] = 1` 
@@ -65,6 +68,7 @@ def integerBreak(self, n: int) -> int:
 
 Time complexity: O(n<sup>2</sup>)
 Space complexity: O(n)
+
 ```PYTHON
 def numTrees(self, n: int) -> int:
     dp = [0] * (n + 1)
