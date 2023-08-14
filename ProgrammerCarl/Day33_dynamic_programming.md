@@ -2,6 +2,7 @@
 ### way 1: dynamic programming in top-down recursive approach 
 Time complexity: O(n), each fib number is calculated once\
 Space complexity: O(2n), 1n for the `memo` array and another 1n for call stack which is used implicitly duing recusion
+
 ```PYTHON
 def fib(self, n: int) -> int:
     def recur(n):
@@ -21,6 +22,7 @@ def fib(self, n: int) -> int:
 ```
 
 ### way 2: dynamic programming in bottom-up iterative approach 
+
 ```PYTHON
 def fib(self, n: int) -> int:
     if n <= 1: return n
@@ -38,7 +40,9 @@ def fib(self, n: int) -> int:
 # 70. Climbing Stairs
 ### way 1: dynamic programming
 Each time we can only climb 1 or 2 steps. Hence, to climb to 3rd floor, we can climb 2 steps from 1st floor or 1 step from 2nd floor.
-![](./images/20230314213530.png)
+
+<img width="772" alt="20230314213530" src="https://github.com/abc12345d/algorithm_practice/assets/44512722/005fe842-051f-4641-832f-31ce75e66068">
+
 (1) Determine the `dp` array and the meaning of its subscripts
 - `dp[i]` = the number of ways to reach `i`th floor
 
@@ -86,10 +90,11 @@ Each time we can only climb 1 or 2 steps. Hence, in order to climb to top floor,
 (5) Derive the resulted `dp` array and check it by printing
 - For example, when `cost = [10,15,20]`, the `dp` should be `[0, 0, 10, 15]`.
 
-![](./images/20230315113107.png)
+<img width="774" alt="20230315113107" src="https://github.com/abc12345d/algorithm_practice/assets/44512722/847d73f0-b365-48ad-a16b-4db63469202d">
 
 Time complexity: O(n)\
 Space complexity: O(n)
+
 ```PYTHON
 def minCostClimbingStairs(self, cost: List[int]) -> int:
     dp = [0] * (len(cost) + 1)
