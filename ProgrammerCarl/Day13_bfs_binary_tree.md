@@ -1,4 +1,4 @@
-102. Binary Tree Level Order Traversal
+# 102. Binary Tree Level Order Traversal
 ```PYTHON
 from collections import deque
 
@@ -233,7 +233,9 @@ class Solution:
 ```
 # 104. Maximum Depth of Binary Tree
 To get the height of a binary tree, we have to traverse the tree in post order, i.e. left, right and mid. To get get the depth of a binary tree, we have to traverse the tree in pre order, i.e. mid, left and right. As the height of the root node will equal to the max depth of a binary tree, we can still solve this question by using `get_height` function.
-![](./images/20230218142841.png)  
+
+<img width="1045" alt="20230218142841" src="https://github.com/abc12345d/algorithm_practice/assets/44512722/46a9e1c7-3b37-42fa-bb4a-8ba7468c5bc3">
+
 ### way 1: recursive approach (dfs in post order)
 ```PYTHON
 def maxDepth(self, root: Optional[TreeNode]) -> int:
@@ -245,6 +247,7 @@ def maxDepth(self, root: Optional[TreeNode]) -> int:
     
     return get_height(root)
 ```
+
 ### way 2: iterative approach (bfs)
 ```PYTHON
 from collections import deque
@@ -396,5 +399,6 @@ class Solution:
             
         return True
 ```
+
 #### TODO: q100, q572
 #### TODO: q104 - way 3: (dfs in pre order) [hint: backtracking algorithm]
