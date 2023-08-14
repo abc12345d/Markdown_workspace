@@ -4,6 +4,7 @@
 Could not pass all the leetcode test case since it has high time complexity.\
 Time complexity: O(n*k) 
 Space complexity: O(k)
+
 ```PYTHON
 def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
     if len(nums) <= k:
@@ -22,8 +23,11 @@ def maxSlidingWindow(self, nums: List[int], k: int) -> List[int]:
 
 ### way 2: maintain a monotonic queue which stores possible max values of sliding windows
 Time complexity: O(n), since every element in the monotonic queue will only be push and pop by one time\
-![](./images/20230213134720.png)   
+
+<img width="1037" alt="20230213134720" src="https://github.com/abc12345d/algorithm_practice/assets/44512722/8ab0b5f6-a866-49aa-a966-c5fc8306f64a">
+
 Space complexity: O(k)
+
 ```PYTHON
 from collections import deque
 class monotonic_queue:
@@ -72,6 +76,7 @@ class Solution:
 # 347. Top K Frequent Elements
 Use hash map and heap sort\
 Time complexity: O(n log k)
+
 ```PYTHON
 import heapq
 class Solution:
