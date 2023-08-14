@@ -1,4 +1,5 @@
 # 455. Assign Cookies
+
 ```PYTHON
 def findContentChildren(self, g: List[int], s: List[int]) -> int:
     g.sort()
@@ -16,7 +17,7 @@ def findContentChildren(self, g: List[int], s: List[int]) -> int:
 
 # 376. Wiggle Subsequence
 ### way 1: greedy
-![](20230306210619.png)
+
 <img width="810" alt="image" src="https://github.com/abc12345d/algorithm_practice/assets/44512722/dbb609f6-ca56-4db0-9bf5-4b4c335fa353">
 
 ```PYTHON
@@ -67,8 +68,10 @@ def wiggleMaxLength(self, nums: List[int]) -> int:
 
     return max(up, down)
 ```
+
 # 53. Maximum Subarray
 ### way 1: dp
+
 ```PYTHON
 def maxSubArray(self, nums: List[int]) -> int:
     maxSum = nums[0]
