@@ -1,6 +1,8 @@
 # 232. Implement Queue using Stacks
 In order to implement queue by using only stack, we need at least two stacks which responsible for input and output respectively.
-![](./images/20230210112415.png)  
+
+<img width="670" alt="20230210112415" src="https://github.com/abc12345d/algorithm_practice/assets/44512722/a1e888f9-0cfe-494d-80ab-334609b46c0d">
+
 ```PYTHON
 class MyQueue:
 
@@ -32,7 +34,8 @@ class MyQueue:
 
 # 225. Implement Stack using Queues
 ### way 1: two queues
-![](./images/20230210113700.png)  
+<img width="706" alt="20230210113700" src="https://github.com/abc12345d/algorithm_practice/assets/44512722/970b3a34-d664-497e-8769-9612274b3dfb">
+
 ```PYTHON
 from collections import deque
 class MyStack:
