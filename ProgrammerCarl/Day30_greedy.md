@@ -1,4 +1,5 @@
 # 860. Lemonade Change
+
 ```PYTHON
 def lemonadeChange(self, bills: List[int]) -> bool:
     notes = {5: 0, 10: 0, 20: 0}
@@ -26,7 +27,9 @@ def lemonadeChange(self, bills: List[int]) -> bool:
 
 # 406. Queue Reconstruction by Height
 As `k` depends on `h`, so we sort the `people` array by `h` first (in descending order) then by `k` (in ascending order). 
-![](./images/20230310151250.png)
+
+<img width="751" alt="20230310151250" src="https://github.com/abc12345d/algorithm_practice/assets/44512722/ced61334-4170-419c-bacf-567044dba3f4">
+
 ```PYTHON
 def reconstructQueue(self, people: List[List[int]]) -> List[List[int]]:
 
@@ -39,9 +42,12 @@ def reconstructQueue(self, people: List[List[int]]) -> List[List[int]]:
 ```
 
 # 452. Minimum Number of Arrows to Burst Balloons
-![](./images/20230310162840.png)
+
+<img width="771" alt="20230310162840" src="https://github.com/abc12345d/algorithm_practice/assets/44512722/23bf71e1-b975-4970-95af-bb7f9195628d">
+
 Average case time complexity: O(n log n), due to the Tim Sort (built-in sorting algorithm of python)\
 Space complexity: O(1)
+
 ```PYTHON
 def findMinArrowShots(self, points: List[List[int]]) -> int:
     points.sort(key = lambda point: point[0])
