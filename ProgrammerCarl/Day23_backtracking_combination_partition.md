@@ -1,5 +1,7 @@
 # 39. Combination Sum
-![](./images/20230227121251.png)  
+ 
+<img width="988" alt="20230227121251" src="https://github.com/abc12345d/algorithm_practice/assets/44512722/3080e0ee-beca-40ff-8806-c9d72d0d4cde">
+
 ```PYTHON
 def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
     def backtrack(accum, target, path, startIndex):
@@ -24,14 +26,17 @@ def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
     backtrack(0, target, [], 0)
     return res_list
 ```
+
 # 40. Combination Sum II
 For this question, we remove duplicates in branch level by using `startIndex`.
 We must also remove duplicates in tree layer. There are two ways to remove duplicates: \
 (1) with an extra array `used` to record the element we used in constructing the path\
 (2) just check `if candidates[i] in candidates[startIndex:i]`
 
-![](./images/20230302220017.png)
+<img width="819" alt="20230302220017" src="https://github.com/abc12345d/algorithm_practice/assets/44512722/e8f93d09-b0d3-408e-b8e2-5555f9bfda1f">
+
 ### way 1:
+
 ```PYTHON
 def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
     def backtrack(accum, target, path, startIndex, candidates, used):
@@ -60,7 +65,9 @@ def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]
     backtrack(0, target, [], 0, sorted(candidates), used)
     return res_list
 ```
+
 ### way 2: 
+
 ```PYTHON
 def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]:
     def backtrack(accum, target, path, startIndex, candidates):
@@ -93,9 +100,12 @@ def combinationSum2(self, candidates: List[int], target: int) -> List[List[int]]
 ```
 
 # 131. Palindrome Partitioning
-![](./images/20230227142550.png)  
+
+<img width="834" alt="20230227142550" src="https://github.com/abc12345d/algorithm_practice/assets/44512722/4c279dfd-2f30-4187-9f3d-4d27f812491d">
+
 ### way 1: backtracking with startIndex
 For backtracking in problem involved partition, the way to handle `startIndex` is different from backtracking in problem involved combination. We still loop from `startIndex` to `len(candidates)`, but we take subarray from `startIndex` to `i` instead of only take one element at `i`:
+
 ```PYTHON
 # backtracking in problem involved combination
 for i in range(startIndex, len(candidates)):
@@ -105,7 +115,9 @@ for i in range(startIndex, len(candidates)):
 for i in range(startIndex, len(candidates)):
     node_to_process = candidates[startIndex:i+1]
 ```
+
 Full solution for 131:
+
 ```PYTHON
 def partition(self, s: str) -> List[List[str]]:
     def isPalindrome(string):
@@ -139,19 +151,21 @@ def partition(self, s: str) -> List[List[str]]:
     backtrack([], s, 0)
     return res_list
 ```
-### way 2: backtracking with smaller string
-```PYTHON
-def partition(self, s: str) -> List[List[str]]:
-    def isPalindrome(string):
-        left = 0
-        right = len(string) - 1
-        while left <= right:
-            if string[left] != string[right]:
-                return False
-            left += 1
-            right -= 1
 
-        return True
+### way 2: backtracking with smaller string
+
+```PYTHON
+    def partition(self, s: str) -> List[List[str]]:
+        def isPalindrome(string):
+            left = 0
+            right = len(string) - 1
+            while left <= right:
+                if string[left] != string[right]:
+                    return False
+                left += 1
+                right -= 1
+    
+            return True
 
     def backtrack(path, s):
         if not s:
