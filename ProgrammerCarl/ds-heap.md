@@ -9,7 +9,7 @@ For any given node C, if P is a parent node of C, then the value of P is greater
 
 As a heap is a complete binary tree, it is more efficient to implement it in an array instead of linked tree nodes. To map the elements of a heap into an array: if a node is stored at index i, then its left child is stored at index 2i + 1 and its right child at index 2i + 2.
 
-![](./images/20230214104730.png)  
+<img width="428" alt="20230214104730" src="https://github.com/abc12345d/algorithm_practice/assets/44512722/ef15eb30-b1e2-404b-ba97-e57100644c90">
 
 ### Operations of Heap
 #### Insertion in Heap
