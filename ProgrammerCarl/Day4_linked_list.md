@@ -9,6 +9,7 @@ We also declared a `dummyHead` so that we don't need two separate while-loops to
 
 Time compleity: O(n)\
 Space complexity: O(1)
+
 ```PYTHON
 def swapPairs(self, head: Optional[ListNode]) -> Optional[ListNode]:
         dummyHead = ListNode(val = -1, next = head)
@@ -31,6 +32,7 @@ def swapPairs(self, head: Optional[ListNode]) -> Optional[ListNode]:
         return dummyHead.next
 
 ```
+
 # 19. Remove Nth Node From End of List
 There are two ways to solve this question: (1) reverse, delete, reverse and (2) slow and fast pointers.
 
@@ -41,6 +43,7 @@ For the way (2), we uses two pointers, `fast` and `slow`, both initialized to th
 ### way 1: reverse, delete, reverse
 time complexity: O(3n)\
 space complexity: O(n)
+
 ```PYTHON
 def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
     def reverse(curr,pre):
@@ -69,9 +72,11 @@ def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNod
     # second reverse before return
     return reverse(dummyHead.next, None)
 ```
+
 ### way 2: two pointers - slow & fast
 time complexity: O(n)\
 space complexity: O(1)
+
 ```PYTHON
 def removeNthFromEnd(self, head: Optional[ListNode], n: int) -> Optional[ListNode]:
     dummyHead = ListNode(val = -1, next = head)
@@ -96,6 +101,7 @@ Store all the elements of linked list `A` in `memo` set. Loop through the linked
 
 time complexity: O(m+n), where m = size of linked list `A` and n = size of `B`\
 space complexity: O(m)
+
 ```PYTHON
 def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> Optional[ListNode]:
 
@@ -114,6 +120,7 @@ def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> Optional[List
 
         return None
 ```
+
 ### way 2: 
 Get the size of the linked list `A` and `B`. Then, we use the size difference `diff` to align the pointer of the longer linked list, i.e. we move the pointer of the longer linked list forward by `diff` steps. After the alignment, we can traverse both linked lists at the same speed until we find the intersection or reach the terminating node (None).
 
@@ -121,6 +128,7 @@ Get the size of the linked list `A` and `B`. Then, we use the size difference `d
 
 Time complexity: O(m+n)\
 Space complexity: O(1)
+
 ```PYTHON 3
 def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> Optional[ListNode]:
         def get_size(linked_list):
@@ -159,6 +167,7 @@ def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> Optional[List
         
         return None
 ```
+
 # 142. Linked List Cycle II
 Core idea:\
 (1) check if there is a cycle\
@@ -174,6 +183,7 @@ Since `x1 = x3`, if we move from the head and the meeting point at the same spee
 
 Time complexity: O(n)
 Space complexity: O(1)
+
 ```PYTHON
 def detectCycle(self, head: Optional[ListNode]) -> Optional[ListNode]:
     

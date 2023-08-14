@@ -15,7 +15,7 @@ Can only be used in:\
 #### Description:
 The search range is represented by the `left` and `right` pointers that start from both ends of the array. We first define a `feasible_func` that can separate a search range into two part: `feasible_func = False` and `feasible_func = True`. For each iteration, remove half of the current search range by checking the middle item in the current search space.
 
-<img width="1059" alt="20230203145516" src="https://github.com/abc12345d/algorithm_practice/assets/44512722/b5b03cb6-b331-4fbb-886f-b89a59b42c6b">
+<img width="894" alt="20230203145516" src="https://github.com/abc12345d/algorithm_practice/assets/44512722/b5b03cb6-b331-4fbb-886f-b89a59b42c6b">
 
 As we search, `left` and `right` move towards each other until the boundary of the two parts, i.e. `left` points to the first element in `feasible_func = True` and `right` points to the last element in `feasible_func = False`.
 
