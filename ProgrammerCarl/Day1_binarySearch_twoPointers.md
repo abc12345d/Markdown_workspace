@@ -29,6 +29,7 @@ def search(self, nums: List[int], target: int) -> int:
 ```
 
 ### [left,right)
+
 ```PYTHON
 def search(self, nums: List[int], target: int) -> int:
     left = 0
@@ -52,9 +53,10 @@ def search(self, nums: List[int], target: int) -> int:
     
     return -1 # target not found
 ```
+
 For the condition of while loop and loop invariant, we can always think of the case where there is only one element in the `nums` array and we want to exit the loop after one execution
 
-![](./images/20230201160735.png)  
+<img width="484" alt="20230201160735" src="https://github.com/abc12345d/algorithm_practice/assets/44512722/6d7abf78-ef0b-474e-841a-9c764b715278">
 
 Time complexity: \
 Binary search reduces its search space by half in every iteration. Hence, the worst-case time complexity is O(log n), and the best-case time complexity is O(1).
@@ -65,6 +67,7 @@ To avoid integer overflow while calculating mid, we can change our mid calculati
 # 27. Remove Element
 
 ### Two pointers solution: O(n)
+
 ```PYTHON
 def removeElement(self, nums: List[int], val: int) -> int:
     # loop invariant 1: 
@@ -96,6 +99,7 @@ def removeElement(self, nums: List[int], val: int) -> int:
 ```
 
 ### Brute-force solution: O(n<sup>2</sup>)
+
 ```PYTHON
 def removeElement(self, nums: List[int], val: int) -> int:
 
@@ -115,9 +119,11 @@ def removeElement(self, nums: List[int], val: int) -> int:
 
     return k
 ```
+
 # 26. Remove Duplicates from Sorted Array
 Core idea: slow & fast pointers
 ### Two pointers (slow & fast) solution: O(n)
+
 ```PYTHON
 def removeDuplicates(self, nums: List[int]) -> int:
     if len(nums) == 1:
@@ -141,7 +147,7 @@ There are two possible endings for this question:\
 To tackle scenario 1, code in [704. Binary Search](#704-binary-search) is enough.
 For scenario 2, we have to find the first index of the " > target " range. The exit condition of while loop is `left > right` and the shrinking logic of binary search will lead to `right` points to the last element of " < target " range and `left` points to the first element of " > target " range. Therefore, we can either return `right + 1` or `left`.
 
-![](./images/20230201222957.png)  
+<img width="832" alt="20230201222957" src="https://github.com/abc12345d/algorithm_practice/assets/44512722/e5cd92cf-6586-4b6d-a9c1-ad1372243371">
 
 Other than the return value when the target is not found, the algorithm of this question is similar to [704. Binary Search](#704-binary-search). Hence they have the same time complexity, i.e. the worst-case time complexity is O(log n).
 
@@ -176,7 +182,8 @@ The worst-case time complexities of both ways are O(log n), but way (2) is more 
 ### way (1a): find starting position 
 To find the starting position of target, we have to separate the search space into two parts: " < target " and " >= target " by modifying the if statement inside the binary search. 
 
-![](./images/20230202115427.png)  
+<img width="408" alt="20230202115427" src="https://github.com/abc12345d/algorithm_practice/assets/44512722/26c88e0b-518d-456d-a6ed-ae4119633a07">
+
 ```PYTHON
     def searchRange(self, nums: List[int], target: int) -> List[int]:
         
@@ -221,7 +228,7 @@ To find the starting position of target, we have to separate the search space in
 ### way (1b): find ending position 
 To find the ending position of target, we have to separate the search space into two parts: " <= target " and " > target " by modifying the if statement inside the binary search. 
 
-![](./images/20230202120856.png)  
+<img width="402" alt="20230202120856" src="https://github.com/abc12345d/algorithm_practice/assets/44512722/582ed772-b2ba-412e-9a53-8c433768e194">
 
 ```PYTHON
 def searchRange(self, nums: List[int], target: int) -> List[int]:
@@ -262,10 +269,12 @@ def searchRange(self, nums: List[int], target: int) -> List[int]:
         
         return [start,end]
 ```
+
 ### way (2): two binary search
 What we do after we have found the target will decide the positions of the `left` and `right` pointers (after exiting from the while loop).
 
-![](./images/20230202123745.png)  
+<img width="851" alt="20230202123745" src="https://github.com/abc12345d/algorithm_practice/assets/44512722/d755f7a1-0320-496e-8987-d5cbebb82053">
+
 ```PYTHON
 def searchRange(self, nums: List[int], target: int) -> List[int]:
         
