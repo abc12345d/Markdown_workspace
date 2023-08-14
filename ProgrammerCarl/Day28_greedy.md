@@ -1,6 +1,8 @@
 # 122. Best Time to Buy and Sell Stock II
 ### way 1: greedy
-![](./images/20230306231408.png)
+
+<img width="948" alt="20230306231408" src="https://github.com/abc12345d/algorithm_practice/assets/44512722/a03146ec-7fed-47ba-95a7-2bbf6e259f2b">
+
 ```PYTHON
 def maxProfit(self, prices: List[int]) -> int:
 
@@ -12,7 +14,9 @@ def maxProfit(self, prices: List[int]) -> int:
 
     return profit
 ```
+
 ### way 2: dp
+
 ```PYTHON
 def maxProfit(self, prices: List[int]) -> int:
     if len(prices) <= 1: return 0
@@ -40,6 +44,7 @@ def maxProfit(self, prices: List[int]) -> int:
 
 # 55. Jump Game
 ### way 1: greedy
+
 ```PYTHON
 def canJump(self, nums: List[int]) -> bool:
     if len(nums) == 1: return True
@@ -58,8 +63,10 @@ def canJump(self, nums: List[int]) -> bool:
         if i + availableStep >= len(nums)-1:
             return True
 ```
+
 ### way 2: greedy
 stand at the jumpFromIndex and always jump to jumpToIndex which can achieve biggest move until reaching the last element or reaching somewhere there is no available steps
+
 ```PYTHON
 def canJump(self, nums: List[int]) -> bool:
 
@@ -88,6 +95,7 @@ Starts from the front of the array, find nums[i] which can jump to the goal inde
 
 time complexity: O(n<sup>k</sup>), where k = the minimum number of jumps to reach nums[n - 1] from nums[0]\
 space complexity: O(1)
+
 ```PYTHON
 def jump(self, nums: List[int]) -> int:
     if len(nums) == 1: return 0
@@ -103,11 +111,14 @@ def jump(self, nums: List[int]) -> int:
 
     return result + 1
 ```
+
 ### way 2: leetcode's greedy version
-![](./images/20230307114944.png)(image from leetcode)
+
+<img width="619" alt="20230307114944" src="https://github.com/abc12345d/algorithm_practice/assets/44512722/259a29db-e255-4cf0-ac8c-70d10d83470f">(image from leetcode)
 
 time complexity: O(n)\
 space complexity: O(1)
+
 ```PYTHON
 def jump(self, nums: List[int]) -> int:
     
@@ -122,8 +133,10 @@ def jump(self, nums: List[int]) -> int:
     
     return result
 ```
+
 ### way 3: greedy
 Stand at the jumpFromIndex and always jump to jumpToIndex which can achieve biggest move until reaching the last element.
+
 ```PYTHON
 def jump(self, nums: List[int]) -> int:
 
@@ -144,7 +157,9 @@ def jump(self, nums: List[int]) -> int:
 
     return noJump
 ```
+
 ### way 4: dp
+
 ```PYTHON
 def jump(self, nums: List[int]) -> int:
 
@@ -162,5 +177,6 @@ def jump(self, nums: List[int]) -> int:
 
     return dp[-1]
 ```
+
 # reference
 [bilibili - 林先先森](https://www.bilibili.com/video/BV1HY4y1S7WB/?spm_id_from=333.337.search-card.all.click&vd_source=acc545154bc52bac86d7eca5cf3da83e)
