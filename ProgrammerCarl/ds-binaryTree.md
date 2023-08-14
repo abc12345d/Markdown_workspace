@@ -19,7 +19,7 @@ All levels are completely filled except possibly the last level and all nodes in
 #### Balanced binary tree (aka AVL tree)
 For each node, the height difference of the left and right subtree of the node is not more than 1
 
-<img width="1047" alt="20230216113418" src="https://github.com/abc12345d/algorithm_practice/assets/44512722/707ca6c8-8c82-4386-8b65-4115b37a571d">
+<img width="894" alt="20230216113418" src="https://github.com/abc12345d/algorithm_practice/assets/44512722/707ca6c8-8c82-4386-8b65-4115b37a571d">
 
 ### Ways to traverse a tree
 ####  Breadth-first search (BFS)
