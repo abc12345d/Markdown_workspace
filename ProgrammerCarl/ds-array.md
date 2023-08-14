@@ -1,7 +1,7 @@
 # Array
 An array is a collection of similar data elements stored at contiguous regions of memory. Each data element can be accessed directly by using its index number (In most programming languages, array indexes start at zero, aka zero-based indexing).
 
-![array](./images/array.png)
+<img width="630" alt="array" src="https://github.com/abc12345d/algorithm_practice/assets/44512722/59d48c2a-6520-4191-9fd2-98afb5ac0f55">
 
 ### Characteristic of Array
 Since data elements are stored in the contiguous memory location, the worst case time complexity of insertion and deletion in an array is O(n), as all other data elements may have to be moved for the operations.
@@ -14,10 +14,12 @@ Can only be used in:\
 
 #### Description:
 The search range is represented by the `left` and `right` pointers that start from both ends of the array. We first define a `feasible_func` that can separate a search range into two part: `feasible_func = False` and `feasible_func = True`. For each iteration, remove half of the current search range by checking the middle item in the current search space.
-![](./images/20230203145516.png)   
+
+<img width="1059" alt="20230203145516" src="https://github.com/abc12345d/algorithm_practice/assets/44512722/b5b03cb6-b331-4fbb-886f-b89a59b42c6b">
+
 As we search, `left` and `right` move towards each other until the boundary of the two parts, i.e. `left` points to the first element in `feasible_func = True` and `right` points to the last element in `feasible_func = False`.
 
-![](./images/20230203135924.png)  
+<img width="644" alt="20230203135924" src="https://github.com/abc12345d/algorithm_practice/assets/44512722/55a76811-c34d-4a68-87b2-e698366d04c4">
 
 Time complexity: O(log n) * Time complexity of `feasible_func`
 
