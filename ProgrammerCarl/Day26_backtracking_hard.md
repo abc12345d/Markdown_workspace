@@ -1,5 +1,6 @@
 # 332. Reconstruct Itinerary
 ### version 1
+
 ```PYTHON
 def findItinerary(self, tickets: List[List[str]]) -> List[str]:
     def get_index_to_insert_city(city_list, cityA):
@@ -60,7 +61,9 @@ def findItinerary(self, tickets: List[List[str]]) -> List[str]:
 
     return backtrack(from_to_dict, 'JFK', ['JFK'])
 ```
+
 ### version 2: 
+
 ```PYTHON
 def findItinerary(self, tickets: List[List[str]]) -> List[str]:
     def backtrack(from_to_dict, start, path):
@@ -99,10 +102,13 @@ def findItinerary(self, tickets: List[List[str]]) -> List[str]:
 
 # 51. N-Queens
 We use backtracking algorithm to fill the queen column by column. For each column, we try to fill the queen in different row and prune the branch if there is an attack.
-![](./images/20230304222533.png)
+
+<img width="775" alt="20230304222533" src="https://github.com/abc12345d/algorithm_practice/assets/44512722/a04afe13-6a53-42f1-abbe-f9f91f6b2d87">
 
 From below figure, we can see that the coordinates of blocks in diagonal line have some patterns. We utilise this pattern to make sure no two queens attack each other diagonally.
-![](./images/20230304223153.png)
+
+<img width="685" alt="20230304223153" src="https://github.com/abc12345d/algorithm_practice/assets/44512722/6268798c-5a15-4084-91d5-2234c9bc0492">
+
 ```PYTHON
 def solveNQueens(self, n: int) -> List[List[str]]:
     def fill_queen(board, row, col):
@@ -138,6 +144,7 @@ def solveNQueens(self, n: int) -> List[List[str]]:
     backtrack(board, 0)
     return res_list
 ```
+
 TODO：For 51. N-Queens problem, try to write a function `is_valid()` in O(n). The function gets a chessboard, row_number and column_number and return `True` if placing a queen at (row, column) of chessboard would not lead to an attack, otherwise return `False`.
 
 TODO: Question 37. Sudoku Solver
