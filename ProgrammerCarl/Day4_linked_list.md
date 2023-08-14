@@ -1,6 +1,8 @@
 # 24. Swap Nodes in Pairs
 For this question, it is necessary to draw a diagram before coding. Without a diagram, keeping track of the multiple pointers and the proper order in which they should be manipulated can be challenging. 
-![](./images/20230205220227.png) 
+
+<img width="507" alt="20230205220227" src="https://github.com/abc12345d/algorithm_practice/assets/44512722/70d64a2a-5cc5-45dc-9883-879e9a601a8a">
+
 To swap nodes in pairs, we need to change three pointers. To keep track of these three pointers, we must store the pointer before exchange. When we prepare for the next iteration, we must set `prev` to `first` instead of `second`
 
 We also declared a `dummyHead` so that we don't need two separate while-loops to handle the head node and non-head node, respectively.\
@@ -33,7 +35,9 @@ def swapPairs(self, head: Optional[ListNode]) -> Optional[ListNode]:
 There are two ways to solve this question: (1) reverse, delete, reverse and (2) slow and fast pointers.
 
 For the way (2), we uses two pointers, `fast` and `slow`, both initialized to the dummy head. We move the `fast` pointer first while reducing `n`. When `n == 0`, the `slow` pointer starts moving so that the `fast` pointer will be n+1  steps ahead of the `slow` pointer. From this onward (n < 1), we keep reducing n and moving both pointers at the same time. Eventually, the `fast` will point to the last node of the linked list, whereas the `slow` will point to the node just before the node to be removed.
-![](./images/20230206171010.png)  
+
+<img width="593" alt="20230206171010" src="https://github.com/abc12345d/algorithm_practice/assets/44512722/b7119909-4d4b-4566-abf6-a18693982938">
+
 ### way 1: reverse, delete, reverse
 time complexity: O(3n)\
 space complexity: O(n)
@@ -112,7 +116,8 @@ def getIntersectionNode(self, headA: ListNode, headB: ListNode) -> Optional[List
 ```
 ### way 2: 
 Get the size of the linked list `A` and `B`. Then, we use the size difference `diff` to align the pointer of the longer linked list, i.e. we move the pointer of the longer linked list forward by `diff` steps. After the alignment, we can traverse both linked lists at the same speed until we find the intersection or reach the terminating node (None).
-![](./images/20230206210404.png)  
+
+<img width="605" alt="20230206210404" src="https://github.com/abc12345d/algorithm_practice/assets/44512722/fcb52336-261d-4291-9e74-ce54a45267ae">
 
 Time complexity: O(m+n)\
 Space complexity: O(1)
@@ -162,7 +167,9 @@ Core idea:\
 To check if there is a cycle, we can use `fast` and `slow` pointers. Since `fast` pointer moves at double speed of `slow` pointer, they will intersect if and only if there is a cycle, else the `fast` pointer will reach the terminating node (aka Floyd cycle algorithm).
 
 To find the entrance of cycle, we need to perform a bit of mathematics. 
-![](./images/20230207130339.png)  
+
+<img width="995" alt="20230207130339" src="https://github.com/abc12345d/algorithm_practice/assets/44512722/2b16790e-85ee-4c0b-97d6-41dcd121db12">
+
 Since `x1 = x3`, if we move from the head and the meeting point at the same speed, both pointers will meet at the entrance of loop at the same time.
 
 Time complexity: O(n)
