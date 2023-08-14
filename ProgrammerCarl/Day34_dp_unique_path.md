@@ -16,10 +16,12 @@ The robot can only move either down or right at any point in time.
 
 (5) Derive the resulted `dp` array and check it by printing
 - For example, when `m = 3, n = 2`, the `dp` should be `[[1, 1],[1,2],[1,3]]`.
-![](./images/20230315122108.png)
+
+<img width="850" alt="20230315122108" src="https://github.com/abc12345d/algorithm_practice/assets/44512722/382faae2-0ecb-421a-8a51-73989994ad96">
 
 Time complexity: O(m * n)\
 Space complexity: O(m * n)
+
 ```PYTHON
 def uniquePaths(self, m: int, n: int) -> int:
     dp = []
@@ -60,9 +62,11 @@ The robot can only move either down or right at any point in time and its path t
 (5) Derive the resulted `dp` array and check it by printing
 - For example, when `obstacleGrid = [[0,0,1],[1,0,0],[0,1,0]]`, the `dp` should be `[[1, 1, 0], [0, 1, 1], [0, 0, 1]]`.
 
-![](./images/IMG_0AA612861B94-1.jpeg)
+<img width="850" alt="IMG_0AA612861B94-1" src="https://github.com/abc12345d/algorithm_practice/assets/44512722/fae34925-07bb-4de9-bbe7-ecf987a3e372">
+
 Time complexity: O(no_row * no_col)\
 Space complexity: O(no_row * no_col)
+
 ```PYTHON
 def uniquePathsWithObstacles(self, obstacleGrid: List[List[int]]) -> int:
     if obstacleGrid[0][0] == 1: return 0
