@@ -8,13 +8,18 @@ There are two ways to represent binary tree in memory:\
 ### Types of binary tree
 #### Full binary tree: 
 every node has 0 or 2 children.
-![](./images/20230216112945.png)  
+
+<img width="577" alt="20230216112945" src="https://github.com/abc12345d/algorithm_practice/assets/44512722/836df235-c4f0-4ced-b845-998cf48e12b8">
+
 #### Complete binary tree: 
-All levels are completely filled except possibly the last level and all nodes in the last level are as far left as possible. 
-![](./images/20230216112849.png)  
+All levels are completely filled except possibly the last level and all nodes in the last level are as far left as possible.
+
+<img width="595" alt="20230216112849" src="https://github.com/abc12345d/algorithm_practice/assets/44512722/2209b809-2cdc-4923-ae8c-55d59779807d">
+ 
 #### Balanced binary tree (aka AVL tree)
 For each node, the height difference of the left and right subtree of the node is not more than 1
-![](./images/20230216113418.png)  
+
+<img width="1047" alt="20230216113418" src="https://github.com/abc12345d/algorithm_practice/assets/44512722/707ca6c8-8c82-4386-8b65-4115b37a571d">
 
 ### Ways to traverse a tree
 ####  Breadth-first search (BFS)
@@ -39,7 +44,7 @@ For each node, the height difference of the left and right subtree of the node i
 (a) recursive approach \
 (b) iterative approach
 
-![](./images/20230216120011.png)  
+<img width="894" alt="20230216120011" src="https://github.com/abc12345d/algorithm_practice/assets/44512722/9fd689b0-44b6-478b-83fd-cf539043859c">
 
 # Binary search tree
 Definition of Binary search tree:\
