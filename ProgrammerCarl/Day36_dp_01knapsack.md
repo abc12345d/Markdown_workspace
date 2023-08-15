@@ -1,5 +1,9 @@
 # 416. Partition Equal Subset Sum
-### way 1: dynamic programming
+
+<img width="649" alt="image" src="https://github.com/abc12345d/algorithm_practice/assets/44512722/b9a9bf8a-07e5-4076-9efd-1605a7665723">
+
+
+### way 3: dynamic programming
 Core idea: \
 Transform the question into 1/0 knapsack problem which use dynamic programming algorithm.
 
@@ -30,6 +34,7 @@ Steps:\
 
 Time complexity: O(n<sup>2</sup>)
 Space complexity: O(n)
+
 ```PYTHON
 def canPartition(self, nums: List[int]) -> bool:
 
