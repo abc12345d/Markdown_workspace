@@ -23,7 +23,14 @@ Here we use 509. fibonacci number (day 33) as an example for these steps:
 5. Derive the resulted `dp` array and check it by printing
 - For example, when `n = 10`, the `dp` should be `[0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55]`.
 
-## Common questions involved dynamic programming
+## Common category of dynamic programming
+Most dynamic programming questions can be boiled down to a few categories:
+- 0/1 Knapsack
+- Unbounded Knapsack
+- Shortest Path (eg: Unique Paths I/II)
+- Fibonacci Sequence (eg: House Thief, Jump Game)
+- Longest Common Substring/Subsequeunce
+
 ### 0/1 Knapsack problem
 Description: 
 
@@ -71,7 +78,7 @@ def dp_with_1d_array_knapsack():
     print(dp)
 ```
 
-### complete knapsack
+### complete knapsack (unbounded knapsack)
 Description: 
 
 Given a set of items, each with a weight and a value, determine which items to include in the collection so that the total weight is less than or equal to a given limit and the total value is as large as possible. **Each item can be added more than once.**
@@ -104,3 +111,4 @@ def initialisation():
 - [Introduction to Algorithms by Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, and Clifford Stein](https://en.wikipedia.org/wiki/Introduction_to_Algorithms)
 - [代码随想录 - 动态规划：01背包理论基础](https://programmercarl.com/背包理论基础01背包-1.html)
 - [代码随想录 - 动态规划：01背包理论基础（滚动数组](https://programmercarl.com/背包理论基础01背包-2.html#一维dp数组-滚动数组)
+- [5 Steps to Think Through DP Questions.](https://leetcode.com/problems/target-sum/solutions/455024/dp-is-easy-5-steps-to-think-through-dp-questions/)
