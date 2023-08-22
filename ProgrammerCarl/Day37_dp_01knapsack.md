@@ -102,7 +102,11 @@ Due to the below calculation, we are looking for the number of ways to form subs
 ```PYTHON
 def findTargetSumWays(self, nums: List[int], target: int) -> int:
     summ = sum(nums)
-    if summ < abs(target) or (summ + target) % 2 == 1: return 0
+
+    # nums = [1], target=[2] or [-2] return 0
+    if summ < abs(target): return 0
+    # nums = [1,5] target=[3] return 0
+    if (summ + target) % 2 == 1: return 0
 
     bagLimit = (sum(nums)+ target)//2
 
@@ -119,3 +123,4 @@ TODO:  474.Ones and zeros
 
 # Reference
 - [Target Sum | Dynamic Problem | Leetcode 494](https://www.youtube.com/watch?v=hqGa65Rp5LQ)
+- [494 bottom-up dp](https://leetcode.com/problems/target-sum/solutions/3283014/494-time-92-20-and-space-96-14-solution-with-step-by-step-explanation/)
