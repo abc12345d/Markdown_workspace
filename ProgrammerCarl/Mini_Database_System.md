@@ -68,3 +68,5 @@ The pseudocode for query minimization is:
 ```
 
 Below is the backtracking tree for the example (1):
+<img width="888" alt="backtrackingTree" src="https://github.com/abc12345d/algorithm_practice/assets/44512722/1a83e81d-3d7b-415f-b854-89ce0e98ac62">
+
