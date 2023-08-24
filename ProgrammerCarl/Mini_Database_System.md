@@ -57,15 +57,17 @@ The pseudocode for query minimization is:
 ```
 
 Below is the backtracking tree for the example (1):
+
 <img width="555" alt="backtrackingTree" src="https://github.com/abc12345d/algorithm_practice/assets/44512722/1a83e81d-3d7b-415f-b854-89ce0e98ac62">
 
 ## The interpreter of query
 
 
 There are many processing models that can be used by a database system for query execution. For this database system, my processing model is the iterator model. This model involves integrating a `getNextTuple()` function within each operator present in the query tree. Besides, there are also various ways to organise a query tree, each comes with a different cost. To achieve database optimisation, I strategically arranged the query tree to minimize costs:
+
 <img width="442" alt="query tree" src="https://github.com/abc12345d/algorithm_practice/assets/44512722/9a30a224-e76e-4cf5-993f-dda9c4a7981e">
 
-In summary, I implement:
+For query interpreter, I implement:
 1. basic components which form a query (see further notes for UML class diagram)
 2. iterator model for operators
    - Scan Operator
@@ -79,10 +81,16 @@ In summary, I implement:
 
 ## Final Outcome of the Database System
 Given the below database schema and relations:
+
 <img width="666" alt="database_schema" src="https://github.com/abc12345d/algorithm_practice/assets/44512722/8ae6d46f-d25e-495d-9c62-5db58dd2c331">
 
 The query and its output data:
+
 <img width="666" alt="Output_data" src="https://github.com/abc12345d/algorithm_practice/assets/44512722/0d0eaa28-a879-4dfa-91de-db0b0a6629ab">
+
+## Reflection
+1. From the UML class diagram for query components, we can see that the Select Operator has the Scan Operator as its child. To adhere to a more effective Object-Oriented Programming (OOP) approach, it is advisable to designate the child operator as simply 'Operator' instead of directly specifying the Scan Operator. 
+2. For the construction of the query plan, we can add a projection push-down (see further notes) to further reduce the attributes to be handled during query execution. This will result in a significant reduction in query processing time if our database consists of relations with a large number of attributes.
 
 # Further notes
 
@@ -105,3 +113,6 @@ WHERE x >= 5
 
 ## UML class diagram for query tree
 <img width="666" alt="QueryPlan" src="https://github.com/abc12345d/algorithm_practice/assets/44512722/6fe61a1a-394e-40f8-a731-dce1ec2841ca">
+
+## Projection push-down
+<img width="333" alt="Projection_push-down" src="https://github.com/abc12345d/algorithm_practice/assets/44512722/b266634c-c228-4c46-9ad3-e2d0642a04af">
