@@ -1,2 +1,2 @@
-# algorithm_practice
-Algorithm practice in Python based on the content of [代码随想录](https://programmercarl.com)
+# markdown workplace 
+contains all the markdown I put as notes or project description in my portfolio website
