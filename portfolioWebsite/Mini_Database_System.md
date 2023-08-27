@@ -13,46 +13,46 @@ We can separate the program into two main parts:
 ## The minimization of query 
 By minimising the conjunctive query (CQ, see further notes for more details), we can minimise the number of relations which will be passed to the interpreter of CQ, resulting to a significant reduction in time complexity. For example (1),
 
-```
+```PYTHON
 Q(x) :- T(x, y, z), T(x, t, 2), T(w, t, z), T(x, t, z)
 
 can be minimised to 
 
 Q(x) :- T(x, yt, 2)
-
 ```
+
 To me, the hardest part in query minimization is transforming working process of CQ minimization into actual algorithm.
 
 The working process of minimization is
 1. x appeared in query head so it is a must-variable that cannnot be deleted 
 - confirmed set: {x = x}
 - stage set: {}
-2. first relation and second relation have matched attribute `x` in same position so `y = t` and `z = 2`. The `2` is a constant hence `z = 2` is also added to confirmed set.
+2. first relation and second relation have matched attribute *x* in same position so *y = t* and *z = 2*. The *2* is a constant hence *z = 2* is also added to confirmed set.
 - confirmed set: {x = x, z = 2}
 - stage set: {y = t}
-3. first relation and third relation have matched attribute `z` in same position so `w = x` and `t = y`. 
+3. first relation and third relation have matched attribute *z* in same position so *w = x* and *t = y*. 
 - confirmed pair: {x = x, z = 2}
 - stage set: {y = t, w = x, t = y}
-4. resolve `y = t` and `t = y` and move the new pairing into the confirmed set
+4. resolve *y = t* and *t = y* and move the new pairing into the confirmed set
 - confirmed set: {x = x, z = 2, y = yt, t = yt}
 - stage set: {w = x}
-5. second relation and last relation have matched attribute `x` and `t` so `z = 2`
+5. second relation and last relation have matched attribute *x* and *t* so *z = 2*
 - confirmed set: {x = x, z = 2, y = yt, t = yt}
 - stage set: {w = x}
 
 The pseudocode for query minimization is:
 
-```
+```PYTHON
 1. form confirmed_set
    - map variables in the query head to themselves
    - map constants to themselves and preprocess body of query to do CQ minimisation
-3. store relational atoms with same name into an arraylist. 
+2. store relational atoms with same name into an arraylist. 
    E.g. R(a,b,c) and R(c,d,e) will be stored to same arraylist and 
         S(f,g) and S(h,i) will be stored in another arraylist
-5. find all the available substitution for every relational atoms by finding pairing (R_1, R_2) where 
+3. find all the available substitution for every relational atoms by finding pairing (R_1, R_2) where 
    E.g. R_1(a,c,c) and R_2(x,y,z)
         available substitution is [x = a, y = c, z = c] from R_2 to R_1
-6. use backtracking algorithm to find the correct substitution for each relational atom where a correct
+4. use backtracking algorithm to find the correct substitution for each relational atom where a correct
    substitution will not clash with the confirmed_set
 ```
 
@@ -63,7 +63,7 @@ Below is the backtracking tree for the example (1):
 ## The interpreter of query
 
 
-There are many processing models that can be used by a database system for query execution. For this database system, my processing model is the iterator model. This model involves integrating a `getNextTuple()` function within each operator present in the query tree. Besides, there are also various ways to organise a query tree, each comes with a different cost. To achieve database optimisation, I strategically arranged the query tree to minimize costs:
+There are many processing models that can be used by a database system for query execution. For this database system, my processing model is the iterator model. This model involves integrating a *getNextTuple()* function within each operator present in the query tree. Besides, there are also various ways to organise a query tree, each comes with a different cost. To achieve database optimisation, I strategically arranged the query tree to minimize costs:
 
 <img width="442" alt="query tree" src="https://github.com/abc12345d/algorithm_practice/assets/44512722/9a30a224-e76e-4cf5-993f-dda9c4a7981e">
 
@@ -97,7 +97,7 @@ The query and its output data:
 ## What is CQ?
 Any simple SELECT-FROM-WHERE SQL query (only AND and equality in the WHERE clause) can be expressed as a conjunctive query (CQ). For example,
 
-```
+```SQL
 Q(x, SUM(t)) :- R(x, y, z), S(x, w, t), x >= 5
 
 is equivalent to
