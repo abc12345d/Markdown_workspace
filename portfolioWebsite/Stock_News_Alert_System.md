@@ -7,8 +7,17 @@ Sends news about specific stock via SMS when the closing price of yesterday and 
 To keep track of my stocks by receiving news alert about them, when the closing price of yesterday and the day before yesterday differs by more than 5%. The system is a very early prototype and I have many ideas to extend its. I'm working on realising those ideas.
 
 ## version 1
+There are 3 parts for this version:
+1. Retrieving stock prices from Alpha Vantage through the API.
+2. Fetching news related to the stock from Newsdata through the API when specific conditions are met.
+3. Sending SMS using the Twilio API to convey information about stock price changes, headlines, and brief descriptions.
+
+I then scheduled the Python code to run on a daily basis using PythonAnywhere
 
 ```PYTHON
+import requests
+from twilio.rest import Client
+
 def calc_percentage_change_closing_price(day, day_minus_one):
     """get day_n's closing price and day_n-1's closing price
     return the percentage changes in closing price (%)"""
@@ -42,7 +51,6 @@ def send_message(title, description, closing_price_percentage_change):
         to=TO_PHONE_NUMBER,
     )
     print(message.sid)
-
 
 stock_endpoint = "https://www.alphavantage.co/query"
 stock_params = {
@@ -88,3 +96,4 @@ else:
 Outcome:
 
 <img height="400" alt="Stock_News_Alert_System" src="https://github.com/abc12345d/Markdown_workspace/assets/44512722/27f07be3-f58a-43c8-83a5-c5bcb0701315">
+
