@@ -72,7 +72,7 @@ After each document is preprocessed and stored in MongoDB, our model creates two
 
 First is the list of the inverted index and we store it in a nested dictionary with the format below,
 
-{' ': {' ': [ ]}}
+{' ': {' ': [  ]}}
 
 The first key is the token and the value is a dictionary. The second key is the document ID, and the value of it is a list of the position. Here the position is the position index after preprocessing. We include the position to enable proximity search and phrase search.
 
@@ -104,7 +104,7 @@ For content, supporting two search methods on preprocessed query with inverted i
 
 TFIDF: first get the set of all documents containing any token in the query, then for each document, calculate the TFIDF score and sort them by scores. 
 
-Phrase/Proximity search: the system intersects each token’s postings list and ![](images/Aspose.Words.c31673e0-76fd-4872-9152-25280fe38596.002.png)measures the distance of consecutive tokens’ positions. A tolerance of 2 is set, meaning tokens should appear no further than 2 words apart.
+Phrase/Proximity search: the system intersects each token’s postings list and measures the distance of consecutive tokens’ positions. A tolerance of 2 is set, meaning tokens should appear no further than 2 words apart.
 
 Supporting field search on a preprocessed query with a field index list is available for the title. Additionally, for writers, a field index list is provided to aid in searching on a query that has not been preprocessed.
 
