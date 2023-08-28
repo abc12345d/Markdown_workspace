@@ -3,6 +3,11 @@
 Sends personalised emails automatically from CSV file using Python.
 
 ---
+
+This code is a Python script that automates the process of sending birthday wishes via email. It reads a CSV file containing a list of birthdays and email addresses, processes the data to identify if there's a birthday star today, and then sends a personalized email to the birthday star.
+
+Please note that to run this script successfully, you'll need to replace placeholders such as MY_EMAIL, PASSWORD, and appropriate file paths with actual values.
+
 ## Example 
 <img width="777" alt="Personalised_Email_Automation" src="https://github.com/abc12345d/Markdown_workspace/assets/44512722/2c0bac05-5223-46bd-beb1-fe8f2f29b77f">
 
