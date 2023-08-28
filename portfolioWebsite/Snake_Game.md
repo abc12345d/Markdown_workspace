@@ -27,8 +27,8 @@ Each module (main.py, food.py, snake.py, scoreboard.py) contributes to a specifi
 <img width="555" alt="snake_game" src="https://github.com/abc12345d/Markdown_workspace/assets/44512722/ce3c3814-fd3f-4750-aa98-64d5b0d621b9">
 
 ## Project Code
-
 main.py
+
 ```PYTHON
 from turtle import Screen
 from snake import Snake
@@ -89,8 +89,8 @@ screen.onkeypress(fun=start_game, key="s_")
 
 screen.exitonclick()
 ```
-
 food.py
+
 ```PYTHON
 from turtle import Turtle
 import random
@@ -114,8 +114,8 @@ class Food(Turtle):
         self.setposition(x=new_x, y=new_y)
 
 ```
-
 snake.py
+
 ```PYTHON
 from turtle import Turtle
 
@@ -196,8 +196,8 @@ class Snake:
             self.head.setheading(DOWN)
 
 ```
-
 scoreboard.py
+
 ```PYTHON
 from turtle import Turtle
 
